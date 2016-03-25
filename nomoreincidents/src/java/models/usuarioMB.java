@@ -6,17 +6,19 @@
 
 package models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
 /**
  *
  * @author Diego Kremer
  */
-@ManagedBean
+@Named(value = "usuario")
+
 @SessionScoped
-public class usuarioMB {
+public class usuarioMB implements Serializable {
     
     // Dados para login
     private String usuario;
@@ -46,6 +48,10 @@ public class usuarioMB {
         usuariosDB.add(new usuarioMB ("dkremer", "12345", "Diego Kremer", "Analista", "5555555", "diegokremer@email.com",'A'));
     }
     */
+
+    private usuarioMB(String dkremer, String string, String diego_Kremer, String analista, String string0, String diegokremeremailcom, char c) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
  
     
     public String verificaDadosUsuario() {

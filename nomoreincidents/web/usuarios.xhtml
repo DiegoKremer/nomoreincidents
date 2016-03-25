@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       
+        <title>Usuario</title>
+    </h:head>
+
+    <h:body>
+        <h1>Usuários</h1>
+       <p:dataTable var="Usuários" value="#{usuarios.lista}">
+            <p:column headerText="Id">
+                <h:outputText value="#{usuarios.id}" />
+            </p:column>
+
+            <p:column headerText="Nome">
+                <h:outputText value="#{usuarios.nome}" />
+            </p:column>
+
+            <p:column headerText="Cargo">
+                <h:outputText value="#{usuarios.cargo}" />
+            </p:column>
+
+            <p:column headerText="Email">
+                <h:outputText value="#{usuarios.email}" />
+            </p:column>
+            
+            <p:column headerText="Telefone">
+                <h:outputText value="#{usuarios.telefone}" />
+            </p:column>
+            
+            <p:column headerText="Tipo">
+                <h:outputText value="#{usuarios.tipo}" />
+            </p:column>
+           
+        </p:dataTable>
+    </h:body>
+
+</html>
