@@ -8,8 +8,7 @@ package models;
 
 import java.util.ArrayList;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ApplicationScoped;
+import javax.enterprise.context.ApplicationScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
@@ -19,8 +18,8 @@ import javax.inject.Named;
  * @author Diego Kremer
  */
 @Named(value = "gtecnicoMB")
-@ManagedBean
 @ApplicationScoped
+
 public class grupotecnicoMB {
     
     private String nome;

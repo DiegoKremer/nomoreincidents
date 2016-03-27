@@ -217,5 +217,10 @@ public class usuarioMB implements Serializable {
     public int getNumeroUsuariosCadastrados() {
         return usuariosDB.size();
     }
+    
+    @Override
+    public String toString () {
+        return this.nome;
+    }
 
 }
