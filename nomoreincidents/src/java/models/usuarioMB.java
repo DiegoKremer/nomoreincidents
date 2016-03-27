@@ -8,8 +8,7 @@ package models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import javax.enterprise.context.SessionScoped;
-import javax.faces.bean.ApplicationScoped;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
 /**
@@ -49,15 +48,9 @@ public class usuarioMB implements Serializable {
         
     }
     
-
-  
- 
-    
     public String verificaDadosUsuario() {
-        for (int i = 0; i < usuariosDB.size(); i++) 
-        
-       {
-            if (this.usuario.equals(usuariosDB.get(i).getUsuario()) && this.senha.equals(usuariosDB.get(i).getSenha())) {
+        for (int i = 0; i < usuariosDB.size(); i++) {
+            if (this.getUsuario().equals(usuariosDB.get(i).getUsuario()) && this.getSenha().equals(usuariosDB.get(i).getSenha())) {
 
                 return "index";
             } 
@@ -123,8 +116,18 @@ public class usuarioMB implements Serializable {
         this.tipoUsuario = tipoUsuario;
     }
     
-    public void cadastraUsuario () {
-        usuariosDB.add(new usuarioMB (usuario, senha, nome, cargo, telefone, email, tipoUsuario));
+    public String cadastraUsuario () {
+        usuarioMB novoUsuario = new usuarioMB();
+        novoUsuario.setUsuario(usuario);
+        novoUsuario.setSenha(senha);
+        novoUsuario.setNome(nome);
+        novoUsuario.setCargo(cargo);
+        novoUsuario.setTelefone(telefone);
+        novoUsuario.setEmail(email);
+        novoUsuario.setTipoUsuario(tipoUsuario);
+        // usuariosDB.add(0, novoUsuario);
+        usuariosDB.add(novoUsuario);
+        return "login";
     }
     
     
