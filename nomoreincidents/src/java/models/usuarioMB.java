@@ -9,15 +9,16 @@ package models;
 import java.io.Serializable;
 import java.util.ArrayList;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ApplicationScoped;
 import javax.inject.Named;
 
 /**
  *
  * @author Diego Kremer
  */
-@Named(value = "usuario")
+@Named(value = "usuarioMB")
 
-@SessionScoped
+@ApplicationScoped
 public class usuarioMB implements Serializable {
     
     // Dados para login
@@ -32,26 +33,24 @@ public class usuarioMB implements Serializable {
     private char tipoUsuario;
     
     //Armazena dados
-    ArrayList<usuarioMB> usuariosDB = new ArrayList<usuarioMB> ();
     
+    ArrayList<usuarioMB> usuariosDB = new ArrayList<usuarioMB> ();
 
     /**
      * Creates a new instance of usuarioMB
      */
     
     public usuarioMB () {
-        usuariosDB.add(new usuarioMB ("dkremer", "12345", "Diego Kremer", "Analista", "5555555", "diegokremer@email.com",'A'));
+        
         
     }
-    /*
+    
     public usuarioMB(String usuario, String senha, String nome,  String cargo, String telefone, String email, char tipoUsuario) {
-        usuariosDB.add(new usuarioMB ("dkremer", "12345", "Diego Kremer", "Analista", "5555555", "diegokremer@email.com",'A'));
+        
     }
-    */
+    
 
-    private usuarioMB(String dkremer, String string, String diego_Kremer, String analista, String string0, String diegokremeremailcom, char c) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  
  
     
     public String verificaDadosUsuario() {
@@ -124,6 +123,9 @@ public class usuarioMB implements Serializable {
         this.tipoUsuario = tipoUsuario;
     }
     
+    public void cadastraUsuario () {
+        usuariosDB.add(new usuarioMB (usuario, senha, nome, cargo, telefone, email, tipoUsuario));
+    }
     
     
 }

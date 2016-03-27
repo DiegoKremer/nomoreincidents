@@ -6,8 +6,10 @@
 
 package estruturas;
 
+import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ApplicationScoped;
+import models.usuarioMB;
 
 /**
  *
@@ -16,7 +18,8 @@ import javax.faces.bean.ApplicationScoped;
 @ManagedBean
 @ApplicationScoped
 public class dadosMB {
-
+    
+    
     /**
      * Creates a new instance of dadosMB
      */
