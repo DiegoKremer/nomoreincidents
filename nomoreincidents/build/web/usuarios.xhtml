@@ -12,34 +12,34 @@
 
     <h:body>
         <h1>Usuários</h1>
-       <p:dataTable var="Usuários" value="#{usuarios.lista}">
-            <p:column headerText="Id">
-                <h:outputText value="#{usuarios.id}" />
-            </p:column>
-
+        <p:dataTable var="Usuários" value="#{usuarioMB.usuariosDB}">
             <p:column headerText="Nome">
-                <h:outputText value="#{usuarios.nome}" />
+                <h:outputText value="#{usuarioMB.nome}" />
             </p:column>
 
             <p:column headerText="Cargo">
-                <h:outputText value="#{usuarios.cargo}" />
+                <h:outputText value="#{usuarioMB.cargo}" />
             </p:column>
 
             <p:column headerText="Email">
-                <h:outputText value="#{usuarios.email}" />
+                <h:outputText value="#{usuarioMB.email}" />
+            </p:column>
+
+            <p:column headerText="Tipo">
+                <h:outputText value="#{usuarioMB.tipoUsuario}" />
             </p:column>
             
             <p:column headerText="Telefone">
-                <h:outputText value="#{usuarios.telefone}" />
+                <h:outputText value="#{usuarioMB.telefone}" />
             </p:column>
             
-            <p:column headerText="Tipo">
-                <h:outputText value="#{usuarios.tipo}" />
-            </p:column>
+           
            
         </p:dataTable>
          <br></br>
-        <h:link value="Adicionar usuário" outcome="cadastrarUsuario"/>
+        <h:form>
+                <h:commandButton value="Adicionar usuário" action="cadastrarUsuario"/>
+            </h:form>
     </h:body>
 
 </html>

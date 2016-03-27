@@ -12,42 +12,42 @@
 
     <h:body>
         <h1>Atividades</h1>
-        <p:dataTable var="atividades" value="#{atividades.lista}">
+        <p:dataTable var="atividades" value="#{atividadeMB.atividadeDB}">
             <p:column headerText="Id">
-                <h:outputText value="#{atividades.id}" />
+                <h:outputText value="#{atividadeMB.id}" />
             </p:column>
 
-            <p:column headerText="Nome">
-                <h:outputText value="#{atividade.nome}" />
+            <p:column headerText="Analista">
+                <h:outputText value="#{atividadeMB.analista}" />
             </p:column>
 
-            <p:column headerText="Descricao">
-                <h:outputText value="#{atividade.descricao}" />
+            <p:column headerText="Incidente">
+                <h:outputText value="#{atividadeMB.incidente}" />
             </p:column>
 
             <p:column headerText="Equipe">
-                <h:outputText value="#{atividade.equipe}" />
+                <h:outputText value="#{atividadeMB.grupoTecnico}" />
             </p:column>
             
             <p:column headerText="Data">
-                <h:outputText value="#{atividade.data}" />
+                <h:outputText value="#{atividadeMB.data}" />
             </p:column>
             
-            <p:column headerText="Id_incidente">
-                <h:outputText value="#{atividade.id_incidente}" />
+            <p:column headerText="Hora">
+                <h:outputText value="#{atividadeMB.hora}" />
             </p:column>
             
-            <p:column headerText="Id_usuario">
-                <h:outputText value="#{atividade.id_usuario}" />
+            <p:column headerText="Numero interno">
+                <h:outputText value="#{atividadeMB.numeroInterno}" />
             </p:column>
             
-            <p:column headerText="Id_grupo">
-                <h:outputText value="#{atividade.id_grupo}" />
-            </p:column>
+                        
+            
         </p:dataTable>
          <br></br>
-        <h:link value="Adicionar atividade" outcome="cadastrarAtividade"/>
-
+            <h:form>
+                <h:commandButton value="Adicionar atividade" action="cadastrarAtividade"/>
+            </h:form>
     </h:body>
 
 </html>

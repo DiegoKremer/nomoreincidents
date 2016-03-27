@@ -10,29 +10,32 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
+
 
 /**
  *
  * @author Diego Kremer
  */
+@Named(value = "atividadeMB")
 @ManagedBean
 @ApplicationScoped
-public class atividadeMB {
+public class AtividadeMB {
     
     private int numeroInterno;
-    private usuarioMB analista;
-    private incidenteMB incidente;
-    private grupotecnicoMB grupoTecnico;
+    private UsuarioMB analista;
+    private IncidenteMB incidente;
+    private GrupotecnicoMB grupoTecnico;
     private Date data;
     private Date hora;
     
     
-    ArrayList<atividadeMB> atividadeDB = new ArrayList();
+    ArrayList<AtividadeMB> atividadeDB = new ArrayList();
 
     /**
      * Creates a new instance of atividadeMB
      */
-    public atividadeMB() {
+    public AtividadeMB() {
         
     }
     
@@ -51,27 +54,27 @@ public class atividadeMB {
         this.numeroInterno = numeroInterno;
     }
 
-    public usuarioMB getAnalista() {
+    public UsuarioMB getAnalista() {
         return analista;
     }
 
-    public void setAnalista(usuarioMB analista) {
+    public void setAnalista(UsuarioMB analista) {
         this.analista = analista;
     }
 
-    public incidenteMB getIncidente() {
+    public IncidenteMB getIncidente() {
         return incidente;
     }
 
-    public void setIncidente(incidenteMB incidente) {
+    public void setIncidente(IncidenteMB incidente) {
         this.incidente = incidente;
     }
 
-    public grupotecnicoMB getGrupoTecnico() {
+    public GrupotecnicoMB getGrupoTecnico() {
         return grupoTecnico;
     }
 
-    public void setGrupoTecnico(grupotecnicoMB grupoTecnico) {
+    public void setGrupoTecnico(GrupotecnicoMB grupoTecnico) {
         this.grupoTecnico = grupoTecnico;
     }
 
@@ -89,6 +92,14 @@ public class atividadeMB {
 
     public void setHora(Date hora) {
         this.hora = hora;
+    }
+
+    public ArrayList<AtividadeMB> getAtividadeDB() {
+        return atividadeDB;
+    }
+
+    public void setAtividadeDB(ArrayList<AtividadeMB> atividadeDB) {
+        this.atividadeDB = atividadeDB;
     }
     
     

@@ -12,38 +12,34 @@
 
     <h:body>
         <h1>Incidentes</h1>
-        <p:dataTable var="Incidentes" value="#{incidentes.lista}">
-            <p:column headerText="Id">
-                <h:outputText value="#{incidentes.id}" />
-            </p:column>
-
-            <p:column headerText="Nome">
-                <h:outputText value="#{incidentes.nome}" />
-            </p:column>
-
-            <p:column headerText="Registro">
-                <h:outputText value="#{incidentes.registro}" />
+        <p:dataTable var="Incidentes" value="#{incidenteMB.incidenteDB}">
+            <p:column headerText="Descrição">
+                <h:outputText value="#{incidenteMB.descricao}" />
             </p:column>
 
             <p:column headerText="Localidade">
-                <h:outputText value="#{incidentes.localidade}" />
+                <h:outputText value="#{incidenteMB.localidade}" />
             </p:column>
-            
-            <p:column headerText="Descrição">
-                <h:outputText value="#{incidentes.descricao}" />
+
+            <p:column headerText="Usuário">
+                <h:outputText value="#{incidenteMB.usuario}" />
             </p:column>
-            
+
             <p:column headerText="Data">
-                <h:outputText value="#{incidentes.data}" />
+                <h:outputText value="#{incidenteMB.data}" />
             </p:column>
             
-            <p:column headerText="Id_usuario">
-                <h:outputText value="#{incidentes.id_usuario}" />
+            <p:column headerText="Numero de referência">
+                <h:outputText value="#{incidenteMB.numeroRef}" />
             </p:column>
+            
+           
           
         </p:dataTable>
          <br></br>
-        <h:link value="Adicionar incidente" outcome="cadastrarIncidente"/>
+        <h:form>
+                <h:commandButton value="Adicionar incidente" action="cadastrarIncidente"/>
+            </h:form>
     </h:body>
 
 </html>

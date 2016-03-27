@@ -12,31 +12,31 @@
 
     <h:body>
         <h1>Equipes</h1>
-        <p:dataTable var="grupo" value="#{grupo.lista}">
-            <p:column headerText="Id">
-                <h:outputText value="#{grupo.id}" />
-            </p:column>
-
+        <p:dataTable var="grupo" value="#{gtecnicoMB.grupoTecnicoDB}">
             <p:column headerText="Nome">
-                <h:outputText value="#{grupo.nome}" />
+                <h:outputText value="#{gtecnicoMB.nome}" />
             </p:column>
 
             <p:column headerText="Email">
-                <h:outputText value="#{grupo.email}" />
+                <h:outputText value="#{gtecnicoMB.email}" />
+            </p:column>
+
+            <p:column headerText="Membros">
+                <h:outputText value="#{gtecnicoMB.membros}" />
             </p:column>
 
             <p:column headerText="Telefone">
-                <h:outputText value="#{grupo.telefone}" />
+                <h:outputText value="#{gtecnicoMB.telefone}" />
             </p:column>
                                   
-            <p:column headerText="Id_usuario">
-                <h:outputText value="#{grupo.id_usuario}" />
-            </p:column>
+            
             
            
         </p:dataTable>
          <br></br>
-        <h:link value="Adicionar grupo técnico" outcome="cadastrarGrupoTecnico"/>
+        <h:form>
+                <h:commandButton value="Adicionar equipe" action="cadastrarGrupoTecnico"/>
+            </h:form>
     </h:body>
 
 </html>

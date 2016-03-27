@@ -19,22 +19,22 @@ import javax.faces.context.FacesContext;
  */
 @ManagedBean
 @ApplicationScoped
-public class incidenteMB {
+public class IncidenteMB {
     
     private int numero;
     private String numeroRef;
     private String localidade;
-    private usuarioMB usuario;
+    private UsuarioMB usuario;
     private String pesquisaUsuario;
     private Date data;
     private String descricao;
     
     
-    ArrayList<incidenteMB> incidenteDB = new ArrayList();
+    ArrayList<IncidenteMB> incidenteDB = new ArrayList();
     
     // Construtores
     
-    public incidenteMB() {
+    public IncidenteMB() {
         
     }
     
@@ -43,7 +43,7 @@ public class incidenteMB {
     
     public void registraIncidente() {
         
-        incidenteMB novoIncidente = new incidenteMB();
+        IncidenteMB novoIncidente = new IncidenteMB();
         
         novoIncidente.setNumero(geraNumeroIncidente());
         novoIncidente.setNumeroRef(numeroRef);
@@ -80,8 +80,8 @@ public class incidenteMB {
     }
     
     
-    public usuarioMB pesquisaUsuario() {
-        usuarioMB usuarioPesquisado = new usuarioMB ();
+    public UsuarioMB pesquisaUsuario() {
+        UsuarioMB usuarioPesquisado = new UsuarioMB ();
         for (int i = 0; i < usuarioPesquisado.getUsuariosDB().size(); i++) {
             if (usuarioPesquisado.getUsuariosDB().get(i).getNome().equals(pesquisaUsuario)) {
                 return usuarioPesquisado.getUsuariosDB().get(i);
@@ -126,11 +126,11 @@ public class incidenteMB {
         this.localidade = localidade;
     }
 
-    public usuarioMB getUsuario() {
+    public UsuarioMB getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(usuarioMB usuario) {
+    public void setUsuario(UsuarioMB usuario) {
         this.usuario = usuario;
     }
 
@@ -156,6 +156,14 @@ public class incidenteMB {
 
     public void setPesquisaUsuario(String pesquisaUsuario) {
         this.pesquisaUsuario = pesquisaUsuario;
+    }
+
+    public ArrayList<IncidenteMB> getIncidenteDB() {
+        return incidenteDB;
+    }
+
+    public void setIncidenteDB(ArrayList<IncidenteMB> incidenteDB) {
+        this.incidenteDB = incidenteDB;
     }
 
     
