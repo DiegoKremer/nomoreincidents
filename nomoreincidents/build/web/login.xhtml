@@ -12,9 +12,11 @@
             <h:inputText value="#{usuarioMB.usuario}" id="idUsuario"/>
             
             <h:outputLabel value="Senha: " for="idSenha" />
-            <h:inputText value="#{usuarioMB.senha}" id="idSenha"/>
+            <h:inputSecret value="#{usuarioMB.senha}" id="idSenha"/>
             
             <h:commandButton value="Logar" action="#{usuarioMB.verificaDadosUsuario()}"/>
+            
+            <h:commandButton value="Cadastrar" action="cadastrarUsuario"/>
         </h:form>           
     </h:body>
 </html>

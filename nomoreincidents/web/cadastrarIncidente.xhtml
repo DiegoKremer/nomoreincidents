@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Registro de Incidente</title>
+    </h:head>
+    <h:body>
+        <h1>Registro de Incidentes</h1>
+        <h:form>
+            <h:outputLabel value="Número " for="idNumero" />
+            <h:outputText value="#{incidenteMB.geraNumeroIncidente()}" id="idNumero"/>
+            <br/>
+            <h:outputLabel value="Número Ref.: " for="idNumeroRef" />
+            <h:inputText value="#{incidenteMB.numeroRef}" id="idNumeroRef"/>
+            <br/>
+            <h:outputLabel value="Localidade: " for="idLocalidade" />
+            <h:inputText value="#{incidenteMB.localidade}" id="idLocalidade"/>
+            <br/>
+            <h:outputLabel value="Usuário: " for="idUsuario" />
+            <h:inputText value="#{incidenteMB.pesquisaUsuario()}" id="idUsuario"/>
+            
+            <br/>
+            <h:outputLabel value="Data: " for="idData" />
+            <h:inputText value="#{incidenteMB.data}" id="idData"/>
+            <br/>
+            
+            <h:outputLabel value="Descrição: " for="idDescricao" />
+            <h:inputTextarea value="#{incidenteMB.descricao}" id="idDescricao"/>
+            <br/>
+            <br/>
+            <h:commandButton value="Cadastrar" action="#{incidenteMB.registraIncidente()}"/>
+                <br/>
+                <br/>
+                <h:commandButton value="Voltar" action="admin_index"/>
+        </h:form>
+    </h:body>
+</html>
+
