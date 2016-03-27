@@ -6,8 +6,11 @@
 
 package models;
 
+import java.util.ArrayList;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ApplicationScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 
@@ -25,7 +28,7 @@ public class grupotecnicoMB {
     private String telefone;
     private usuarioMB[] membros;
     
-
+    ArrayList<grupotecnicoMB> grupoTecnicoDB = new ArrayList<grupotecnicoMB> ();
     /**
      * Creates a new instance of grupotecnicoMB
      */
@@ -69,6 +72,28 @@ public class grupotecnicoMB {
     
     public void cadastraGrupo() {
     
+        grupotecnicoMB novoGrupo = new grupotecnicoMB();
+        
+        novoGrupo.setNome(nome);
+        novoGrupo.setEmail(email);
+        novoGrupo.setTelefone(telefone);
+        novoGrupo.setMembros(membros);
+        
+        grupoTecnicoDB.add(novoGrupo);
+        
+        nome = "";
+        email = "";
+        telefone = "";
+        membros = null;
+        
+        FacesContext contexto = FacesContext.getCurrentInstance();
+            FacesMessage mensagem = new FacesMessage(
+                    FacesMessage.SEVERITY_INFO, 
+                    "Grupo Técnico cadastrado com sucesso",
+                    "O cadastro do grupo técnico foi realizado com sucesso.");
+            contexto.addMessage(null, mensagem);
+            System.out.println("Grupo Técnico cadastrado");
+        
     }
     
     
