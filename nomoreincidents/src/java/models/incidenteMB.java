@@ -12,31 +12,29 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
-import javax.inject.Named;
 
 /**
  *
  * @author Diego Kremer
  */
-@Named(value = "incidenteMB")
 @ManagedBean
 @ApplicationScoped
-public class IncidenteMB {
+public class incidenteMB {
     
     private int numero;
     private String numeroRef;
     private String localidade;
-    private UsuarioMB usuario;
+    private usuarioMB usuario;
     private String pesquisaUsuario;
     private Date data;
     private String descricao;
     
     
-    ArrayList<IncidenteMB> incidenteDB = new ArrayList();
+    ArrayList<incidenteMB> incidenteDB = new ArrayList();
     
     // Construtores
     
-    public IncidenteMB() {
+    public incidenteMB() {
         
     }
     
@@ -45,7 +43,7 @@ public class IncidenteMB {
     
     public void registraIncidente() {
         
-        IncidenteMB novoIncidente = new IncidenteMB();
+        incidenteMB novoIncidente = new incidenteMB();
         
         novoIncidente.setNumero(geraNumeroIncidente());
         novoIncidente.setNumeroRef(numeroRef);
@@ -82,8 +80,8 @@ public class IncidenteMB {
     }
     
     
-    public UsuarioMB pesquisaUsuario() {
-        UsuarioMB usuarioPesquisado = new UsuarioMB ();
+    public usuarioMB pesquisaUsuario() {
+        usuarioMB usuarioPesquisado = new usuarioMB ();
         for (int i = 0; i < usuarioPesquisado.getUsuariosDB().size(); i++) {
             if (usuarioPesquisado.getUsuariosDB().get(i).getNome().equals(pesquisaUsuario)) {
                 return usuarioPesquisado.getUsuariosDB().get(i);
@@ -128,11 +126,11 @@ public class IncidenteMB {
         this.localidade = localidade;
     }
 
-    public UsuarioMB getUsuario() {
+    public usuarioMB getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(UsuarioMB usuario) {
+    public void setUsuario(usuarioMB usuario) {
         this.usuario = usuario;
     }
 

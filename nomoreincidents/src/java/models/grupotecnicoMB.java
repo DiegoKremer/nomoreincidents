@@ -6,7 +6,6 @@
 
 package models;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -22,18 +21,18 @@ import javax.inject.Named;
 @Named(value = "gtecnicoMB")
 @ManagedBean
 @ApplicationScoped
-public class GrupotecnicoMB implements Serializable {
+public class grupotecnicoMB {
     
     private String nome;
     private String email;
     private String telefone;
-    private UsuarioMB[] membros;
+    private usuarioMB[] membros;
     
-    ArrayList<GrupotecnicoMB> grupoTecnicoDB = new ArrayList<GrupotecnicoMB> ();
+    ArrayList<grupotecnicoMB> grupoTecnicoDB = new ArrayList<grupotecnicoMB> ();
     /**
      * Creates a new instance of grupotecnicoMB
      */
-    public GrupotecnicoMB() {
+    public grupotecnicoMB() {
         
         
     }
@@ -62,18 +61,18 @@ public class GrupotecnicoMB implements Serializable {
         this.telefone = telefone;
     }
 
-    public UsuarioMB[] getMembros() {
+    public usuarioMB[] getMembros() {
         return membros;
     }
 
-    public void setMembros(UsuarioMB[] membros) {
+    public void setMembros(usuarioMB[] membros) {
         this.membros = membros;
     }
     
     
     public void cadastraGrupo() {
     
-        GrupotecnicoMB novoGrupo = new GrupotecnicoMB();
+        grupotecnicoMB novoGrupo = new grupotecnicoMB();
         
         novoGrupo.setNome(nome);
         novoGrupo.setEmail(email);

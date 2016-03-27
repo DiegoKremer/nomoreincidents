@@ -19,7 +19,7 @@ import javax.inject.Named;
 @Named(value = "usuarioMB")
 
 @ApplicationScoped
-public class UsuarioMB implements Serializable {
+public class usuarioMB implements Serializable {
 
     // Dados para login
     private String usuario;
@@ -33,12 +33,12 @@ public class UsuarioMB implements Serializable {
     private char tipoUsuario;
 
     //Armazena dados
-    ArrayList<UsuarioMB> usuariosDB = new ArrayList<UsuarioMB>();
+    ArrayList<usuarioMB> usuariosDB = new ArrayList<usuarioMB>();
 
     /**
      * Creates a new instance of usuarioMB
      */
-    public UsuarioMB() {
+    public usuarioMB() {
 
     }
     /*
@@ -132,7 +132,7 @@ public class UsuarioMB implements Serializable {
         this.tipoUsuario = tipoUsuario;
     }
 
-    public ArrayList<UsuarioMB> getUsuariosDB() {
+    public ArrayList<usuarioMB> getUsuariosDB() {
         return usuariosDB;
     }
 
@@ -175,7 +175,7 @@ public class UsuarioMB implements Serializable {
             
         } else {
             
-            UsuarioMB novoUsuario = new UsuarioMB();
+            usuarioMB novoUsuario = new usuarioMB();
             novoUsuario.setUsuario(usuario);
             novoUsuario.setSenha(senha);
             novoUsuario.setNome(nome);

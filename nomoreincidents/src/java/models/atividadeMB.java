@@ -6,36 +6,33 @@
 
 package models;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.inject.Named;
 
 /**
  *
  * @author Diego Kremer
  */
-@Named(value = "atividadeMB")
 @ManagedBean
 @ApplicationScoped
-public class AtividadeMB implements Serializable {
+public class atividadeMB {
     
     private int numeroInterno;
-    private UsuarioMB analista;
-    private IncidenteMB incidente;
+    private usuarioMB analista;
+    private incidenteMB incidente;
     private grupotecnicoMB grupoTecnico;
     private Date data;
     private Date hora;
     
     
-    ArrayList<AtividadeMB> atividadeDB = new ArrayList();
+    ArrayList<atividadeMB> atividadeDB = new ArrayList();
 
     /**
      * Creates a new instance of atividadeMB
      */
-    public AtividadeMB() {
+    public atividadeMB() {
         
     }
     
@@ -54,19 +51,19 @@ public class AtividadeMB implements Serializable {
         this.numeroInterno = numeroInterno;
     }
 
-    public UsuarioMB getAnalista() {
+    public usuarioMB getAnalista() {
         return analista;
     }
 
-    public void setAnalista(UsuarioMB analista) {
+    public void setAnalista(usuarioMB analista) {
         this.analista = analista;
     }
 
-    public IncidenteMB getIncidente() {
+    public incidenteMB getIncidente() {
         return incidente;
     }
 
-    public void setIncidente(IncidenteMB incidente) {
+    public void setIncidente(incidenteMB incidente) {
         this.incidente = incidente;
     }
 
