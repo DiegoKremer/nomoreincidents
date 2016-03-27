@@ -9,6 +9,8 @@ package models;
 import java.io.Serializable;
 import java.util.ArrayList;
 import javax.enterprise.context.ApplicationScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 /**
@@ -55,6 +57,15 @@ public class usuarioMB implements Serializable {
                 return "index";
             } 
         }
+        
+        usuario="";
+            FacesContext contexto = FacesContext.getCurrentInstance();
+            FacesMessage mensagem = new FacesMessage(
+                    FacesMessage.SEVERITY_ERROR, 
+                    "Login inválido!", 
+                    "Usuario ou senha incorretos! Verifique os dados digitados.");
+            contexto.addMessage(null, mensagem);
+            System.out.println("Usuario deve estar cadastrado");
         
         return "login";  
     
