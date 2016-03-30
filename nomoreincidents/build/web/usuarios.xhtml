@@ -8,40 +8,12 @@
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
        
-        <title>Usuario</title>
+        <title>Usuários</title>
     </h:head>
 
     <h:body>
         <h1>Usuários</h1>
-        <h:outputLabel value="Usuário: " for="idUsuario" />
-                <h:inputText value="#{usuarioMB.usuario}" id="idUsuario"/>
-                <br/>
-                <h:outputLabel value="Senha: " for="idSenha" />
-                <h:inputSecret value="#{usuarioMB.senha}" id="idSenha"/>
-                <br/>
-                <br/>
-                <h:outputLabel value="Nome: " for="idNome" />
-                <h:inputText value="#{usuarioMB.nome}" id="idNome"/>
-                <br/>
-                <h:outputLabel value="Cargo: " for="idCargo" />
-                <h:inputText value="#{usuarioMB.cargo}" id="idCargo"/>
-                <br/>
-                <h:outputLabel value="Telefone: " for="idTelefone" />
-                <h:inputText value="#{usuarioMB.telefone}" id="idTelefone"/>
-                <br/>
-                <h:outputLabel value="Email: " for="idEmail" />
-                <h:inputText value="#{usuarioMB.email}" id="idEmail"/>
-                <br/>
-                <h:outputLabel value="Tipo de Usuário: " for="idTipoUsuario" />
-                <h:selectOneRadio value="#{usuarioMB.tipoUsuario}" id="idTipoUsuario">
-                    <f:selectItem itemValue="C" itemLabel="Colaborador" />
-                    <f:selectItem itemValue="U" itemLabel="Analista" />
-                    <f:selectItem itemValue="A" itemLabel="Administrador" />
-                </h:selectOneRadio>
-                <br/>
-                <h:commandButton value="Cadastrar" action="#{usuarioMB.cadastraUsuario()}"/>
-                <br/>
-                <br/>
+        
         <p:dataTable var="Usuários" value="#{usuarioMB.usuariosDB}">
             <p:column headerText="Nome">
                 <h:outputText value="#{usuarioMB.nome}" />
@@ -62,12 +34,12 @@
             <p:column headerText="Telefone">
                 <h:outputText value="#{usuarioMB.telefone}" />
             </p:column>
-            
-           
-           
         </p:dataTable>
-         <br></br>
-        
+        <br></br>
+         <h:form>
+            <p:commandButton value="Menu" action="menu"/>
+            <p:commandButton value="Adicionar Usuário" action="cadastrarUsuario"/>
+        </h:form>
     </h:body>
 
 </html>

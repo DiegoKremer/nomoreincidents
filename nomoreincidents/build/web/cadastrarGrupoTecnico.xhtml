@@ -9,62 +9,34 @@
     </h:head>
     <h:body>
         <h1>Cadastro de Grupo Tecnico</h1>
-        <h:form id="form">            
-            <h:outputLabel value="Nome: " for="idNome"  />
-            <h:inputText  value="#{gtecnicoMB.nome}" id="idNome"/>
-            <br/>
-            <h:outputLabel value="Email: " for="idEmail" />
-            <h:inputText value="#{gtecnicoMB.email}" id="idEmail"/>
-            <br/>
-            <h:outputLabel value="Telefone: " for="idTelefone" />
-            <h:inputText value="#{gtecnicoMB.telefone}" id="idTelefone"/>
-            <br/>
-            <h:selectManyListbox value="#{gtecnicoMB.grupoTecnicoDB}">
-                
-                <f:selectItem itemValue="1" itemLabel="Item 1" />
-                <f:selectItem itemValue="2" itemLabel="Item 2" />
-            </h:selectManyListbox>
-                
-            <br/>
-                
+        <h:form id="form"> 
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Nome: " for="idNome"  />
+                <h:inputText  value="#{gtecnicoMB.nome}" id="idNome"/>
+                <br/>
+                <h:outputLabel value="Email: " for="idEmail" />
+                <h:inputText value="#{gtecnicoMB.email}" id="idEmail"/>
+                <br/>
+                <h:outputLabel value="Telefone: " for="idTelefone" />
+                <h:inputText value="#{gtecnicoMB.telefone}" id="idTelefone"/>
+                <br/>
+                <h:selectManyListbox value="#{gtecnicoMB.grupoTecnicoDB}">
+
+                    <f:selectItem itemValue="1" itemLabel="Item 1" />
+                    <f:selectItem itemValue="2" itemLabel="Item 2" />
+                </h:selectManyListbox>
+                <br/>
+            </h:panelGrid>     
+            
             <p:commandButton  value="Cadastrar" update="form" action="#{gtecnicoMB.cadastraGrupo()}">
                 <f:ajax render="cadastrarGrupoTecnico"/>
-               
             </p:commandButton>
-                <p:commandButton value="Limpar" type="reset" update="form" action="#{gtecnicoMB.reset()}"/>
             
+            <p:commandButton value="Limpar" type="reset" update="form" action="#{gtecnicoMB.reset()}"/>        
             <br/>
             <br/>
-            <h:commandButton value="Voltar" action="index_admin"/>
-        
-            <p:dataTable var="GrupoTecnico" value="#{gtecnicoMB.grupoTecnicoDB}" >
-            <p:column headerText="Nome">
-                <h:outputText value="#{GrupoTecnico.nome}" />
-            </p:column>
-
-            <p:column headerText="Email">
-                <h:outputText value="#{GrupoTecnico.email}" />
-            </p:column>
-
-            <p:column headerText="Membros">
-                <h:outputText value="#{GrupoTecnico.membros}" />
-            </p:column>
-
-            <p:column headerText="Telefone">
-                <h:outputText value="#{GrupoTecnico.telefone}" />
-            </p:column>
-                                  
-            
-            
-           
-        </p:dataTable>
-          
-        
-        <br/>
-                
-            
-            <br/>
-       
+            <p:commandButton value="Menu" action="menu"/>
+            <p:commandButton value="Grupo Técnico" action="grupoTecnico"/>
        </h:form>
     </h:body>
 </html>

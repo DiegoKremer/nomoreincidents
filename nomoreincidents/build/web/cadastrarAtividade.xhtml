@@ -11,38 +11,7 @@
         <h:form>
             
             
-            <p:dataTable var="atividades" value="#{atividadeMB.atividadeDB}">
-            <p:column headerText="Id">
-                <h:outputText value="#{atividadeMB.id}" />
-            </p:column>
-
-            <p:column headerText="Analista">
-                <h:outputText value="#{atividadeMB.analista}" />
-            </p:column>
-
-            <p:column headerText="Incidente">
-                <h:outputText value="#{atividadeMB.incidente}" />
-            </p:column>
-
-            <p:column headerText="Equipe">
-                <h:outputText value="#{atividadeMB.grupoTecnico}" />
-            </p:column>
             
-            <p:column headerText="Data">
-                <h:outputText value="#{atividadeMB.data}" />
-            </p:column>
-            
-            <p:column headerText="Hora">
-                <h:outputText value="#{atividadeMB.hora}" />
-            </p:column>
-            
-            <p:column headerText="Numero interno">
-                <h:outputText value="#{atividadeMB.numeroInterno}" />
-            </p:column>
-            
-                        
-            
-        </p:dataTable>
         </h:form>
     </h:body>
 </html>

@@ -8,37 +8,32 @@
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
        
-        <title>Usuários</title>
+        <title>Grupo Técnico</title>
     </h:head>
 
     <h:body>
-        <h1>Usuários</h1>
-        
-        <p:dataTable var="Usuários" value="#{usuarioMB.usuariosDB}">
+        <h1>Grupo técnico</h1>
+        <p:dataTable var="GrupoTecnico" value="#{gtecnicoMB.grupoTecnicoDB}" >
             <p:column headerText="Nome">
-                <h:outputText value="#{usuarioMB.nome}" />
-            </p:column>
-
-            <p:column headerText="Cargo">
-                <h:outputText value="#{usuarioMB.cargo}" />
+                <h:outputText value="#{GrupoTecnico.nome}" />
             </p:column>
 
             <p:column headerText="Email">
-                <h:outputText value="#{usuarioMB.email}" />
+                <h:outputText value="#{GrupoTecnico.email}" />
             </p:column>
 
-            <p:column headerText="Tipo">
-                <h:outputText value="#{usuarioMB.tipoUsuario}" />
+            <p:column headerText="Membros">
+                <h:outputText value="#{GrupoTecnico.membros}" />
             </p:column>
-            
+
             <p:column headerText="Telefone">
-                <h:outputText value="#{usuarioMB.telefone}" />
+                <h:outputText value="#{GrupoTecnico.telefone}" />
             </p:column>
         </p:dataTable>
         <br></br>
-         <h:form>
+        <h:form>
             <p:commandButton value="Menu" action="menu"/>
-            <p:commandButton value="Adicionar Usuário" action="cadastrarUsuario"/>
+            <p:commandButton value="Adicionar Grupo Técnico" action="cadastrarGrupoTecnico"/>
         </h:form>
     </h:body>
 
