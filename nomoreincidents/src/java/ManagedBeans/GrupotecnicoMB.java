@@ -8,9 +8,8 @@ package ManagedBeans;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import javax.faces.application.FacesMessage;
-import javax.enterprise.context.ApplicationScoped;
-import javax.faces.context.FacesContext;
+import java.util.List;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import models.GrupoTecnico;
 
@@ -19,83 +18,47 @@ import models.GrupoTecnico;
  *
  * @author Diego Kremer
  */
-@Named(value = "gtecnicoMB")
-@ApplicationScoped
+@Named
+@SessionScoped
 
 public class GrupotecnicoMB implements Serializable {
     
-    private GrupoTecnico novoGrupo = new GrupoTecnico();    
-    private ArrayList<GrupoTecnico> grupoTecnicoDB = new ArrayList<> ();
-    private String nome;
-    private String email;
-    private String telefone;
-    //private UsuarioMB[] membros;
-    /**
-     * Creates a new instance of grupotecnicoMB
-     */
-    public GrupotecnicoMB() {
-       
-      
-        
-    }
-
-    public void reset(){
-        novoGrupo.setNome("");
-        novoGrupo.setEmail("");
-        novoGrupo.setTelefone("");
-    } 
+    private GrupoTecnico novoGrupo;    
+    private List<GrupoTecnico> grupoTecnicoDB;
     
-    public void cadastraGrupo() {
-        novoGrupo.setNome(nome);
-        novoGrupo.setEmail(email);
-        novoGrupo.setTelefone(telefone);
-        grupoTecnicoDB.add(novoGrupo);
-        novoGrupo = new GrupoTecnico();
-        
-        
-        
-        
-        FacesContext contexto = FacesContext.getCurrentInstance();
-            FacesMessage mensagem = new FacesMessage(
-                    FacesMessage.SEVERITY_INFO, 
-                    "Grupo Técnico cadastrado com sucesso",
-                    "O cadastro do grupo técnico foi realizado com sucesso.");
-            contexto.addMessage(null, mensagem);
-            System.out.println("Grupo Técnico cadastrado");
+    public GrupotecnicoMB() {
+       novoGrupo = new GrupoTecnico();
+       grupoTecnicoDB = new ArrayList<>();
         
     }
 
-    public ArrayList<GrupoTecnico> getGrupoTecnicoDB() {
+    
+    
+    public String cadastraGrupo() {
+        grupoTecnicoDB.add(novoGrupo);
+        this.novoGrupo = new GrupoTecnico();
+        return ("grupoTecnico");
+        
+    }
+
+    public GrupoTecnico getNovoGrupo() {
+        return novoGrupo;
+    }
+
+    public void setNovoGrupo(GrupoTecnico novoGrupo) {
+        this.novoGrupo = novoGrupo;
+    }
+
+    public List<GrupoTecnico> getGrupoTecnicoDB() {
         return grupoTecnicoDB;
     }
 
-    public void setGrupoTecnicoDB(ArrayList<GrupoTecnico> grupoTecnicoDB) {
+    public void setGrupoTecnicoDB(List<GrupoTecnico> grupoTecnicoDB) {
         this.grupoTecnicoDB = grupoTecnicoDB;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
+   
+    
 
     
 

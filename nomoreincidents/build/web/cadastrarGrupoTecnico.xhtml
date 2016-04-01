@@ -9,35 +9,30 @@
     </h:head>
     <h:body>
         <h1>Cadastro de Grupo Tecnico</h1>
-        <h:form id="form"> 
+        <h:form > 
             <h:panelGrid columns="3">
                 <h:outputLabel value="Nome: " for="idNome"  />
-                <h:inputText  value="#{gtecnicoMB.nome}" id="idNome"/>
+                <h:inputText  value="#{grupotecnicoMB.novoGrupo.nome}" id="idNome"/>
                 <br/>
                 <h:outputLabel value="Email: " for="idEmail" />
-                <h:inputText value="#{gtecnicoMB.email}" id="idEmail"/>
+                <h:inputText value="#{grupotecnicoMB.novoGrupo.email}" id="idEmail"/>
                 <br/>
                 <h:outputLabel value="Telefone: " for="idTelefone" />
-                <h:inputText value="#{gtecnicoMB.telefone}" id="idTelefone"/>
+                <h:inputText value="#{grupotecnicoMB.novoGrupo.telefone}" id="idTelefone"/>
                 <br/>
-                <h:selectManyListbox value="#{gtecnicoMB.grupoTecnicoDB}">
+                <h:selectOneMenu value="#{grupotecnicoMB.novoGrupo.membros}">
 
                     <f:selectItem itemValue="1" itemLabel="Item 1" />
                     <f:selectItem itemValue="2" itemLabel="Item 2" />
-                </h:selectManyListbox>
+                </h:selectOneMenu>
                 <br/>
-            </h:panelGrid>     
-            
-            <p:commandButton  value="Cadastrar" update="form" action="#{gtecnicoMB.cadastraGrupo()}">
-                <f:ajax render="cadastrarGrupoTecnico"/>
-            </p:commandButton>
-            
-            <p:commandButton value="Limpar" type="reset" update="form" action="#{gtecnicoMB.reset()}"/>        
-            <br/>
-            <br/>
-            <p:commandButton value="Menu" action="menu"/>
-            <p:commandButton value="Grupo Técnico" action="grupoTecnico"/>
-       </h:form>
+                <br/>
+                <h:commandButton value="Cadastrar" action="#{grupotecnicoMB.cadastraGrupo()}"/>
+                <br/>
+                <h:commandButton value="Menu" action="menu"/>
+              
+            </h:panelGrid>  
+        </h:form>
     </h:body>
 </html>
 

@@ -13,21 +13,21 @@
 
     <h:body>
         <h1>Grupo técnico</h1>
-        <p:dataTable var="GrupoTecnico" value="#{gtecnicoMB.grupoTecnicoDB}" >
+        <p:dataTable var="novoGrupo" value="#{grupotecnicoMB.grupoTecnicoDB}" >
             <p:column headerText="Nome">
-                <h:outputText value="#{GrupoTecnico.nome}" />
+                <h:outputText value="#{novoGrupo.nome}" />
             </p:column>
 
             <p:column headerText="Email">
-                <h:outputText value="#{GrupoTecnico.email}" />
+                <h:outputText value="#{novoGrupo.email}" />
             </p:column>
 
             <p:column headerText="Membros">
-                <h:outputText value="#{GrupoTecnico.membros}" />
+                <h:outputText value="#{novoGrupo.membros}" />
             </p:column>
 
             <p:column headerText="Telefone">
-                <h:outputText value="#{GrupoTecnico.telefone}" />
+                <h:outputText value="#{novoGrupo.telefone}" />
             </p:column>
         </p:dataTable>
         <br></br>

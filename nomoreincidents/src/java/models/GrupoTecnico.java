@@ -9,7 +9,7 @@ import ManagedBeans.UsuarioMB;
 
 /**
  *
- * @author marce
+ * @author marcelo
  */
 public class GrupoTecnico {
     private String nome;
@@ -17,18 +17,7 @@ public class GrupoTecnico {
     private String telefone;
     private UsuarioMB[] membros;
 
-    public GrupoTecnico(String nome, String email, String telefone, UsuarioMB[] membros) {
-        this.nome = nome;
-        this.email = email;
-        this.telefone = telefone;
-        this.membros = membros;
-    }
-
-    public GrupoTecnico(String nome, String email, String telefone) {
-        this.nome = nome;
-        this.email = email;
-        this.telefone = telefone;
-    }
+    
     
     
 
