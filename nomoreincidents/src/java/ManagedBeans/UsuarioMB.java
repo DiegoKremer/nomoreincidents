@@ -43,7 +43,11 @@ public class UsuarioMB implements Serializable {
      * Creates a new instance of usuarioMB
      */
     public UsuarioMB() {
+<<<<<<< HEAD
         usuariosDB.add(new Usuario("admin", "12345", "Admin", "Admin", "000000", "admin@admin.com", 'A'));
+=======
+        usuariosDB.add(new Usuario())
+>>>>>>> origin/master
 
     }
     /*
