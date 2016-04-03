@@ -11,6 +11,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import models.Usuario;
 
 /**
  *
@@ -24,6 +25,7 @@ public class UsuarioMB implements Serializable {
     // Dados para login
     private String usuario;
     private String senha;
+    private boolean logado = false;
 
     //Dados gerais de cadastro
     private String nome;
@@ -32,13 +34,16 @@ public class UsuarioMB implements Serializable {
     private String email;
     private char tipoUsuario;
 
+    
+    
     //Armazena dados
-    ArrayList<UsuarioMB> usuariosDB = new ArrayList<UsuarioMB>();
+    ArrayList<Usuario> usuariosDB = new ArrayList<Usuario>();
 
     /**
      * Creates a new instance of usuarioMB
      */
     public UsuarioMB() {
+        usuariosDB.add(new Usuario("admin", "12345", "Admin", "Admin", "000000", "admin@admin.com", 'A'));
 
     }
     /*
@@ -50,16 +55,14 @@ public class UsuarioMB implements Serializable {
     public String verificaDadosUsuario() {
         for (int i = 0; i < usuariosDB.size(); i++) {
             if (this.getUsuario().equals(usuariosDB.get(i).getUsuario()) && this.getSenha().equals(usuariosDB.get(i).getSenha()) && this.getTipoUsuario() == 'A') {
-
+                logado = true;
                 return "index_admin";
 
             } else if (this.getUsuario().equals(usuariosDB.get(i).getUsuario()) && this.getSenha().equals(usuariosDB.get(i).getSenha()) && this.getTipoUsuario() == 'U') {
-
+                logado = true;
                 return "index";
 
-            } else {
-
-            }
+            } 
         }
 
         usuario = "";
@@ -74,6 +77,10 @@ public class UsuarioMB implements Serializable {
 
         return "login";
 
+    }
+    
+    public boolean isLogado () {
+        return logado;
     }
 
     public String getUsuario() {
@@ -132,7 +139,7 @@ public class UsuarioMB implements Serializable {
         this.tipoUsuario = tipoUsuario;
     }
 
-    public ArrayList<UsuarioMB> getUsuariosDB() {
+    public ArrayList<Usuario> getUsuariosDB() {
         return usuariosDB;
     }
 
@@ -175,7 +182,7 @@ public class UsuarioMB implements Serializable {
             
         } else {
             
-            UsuarioMB novoUsuario = new UsuarioMB();
+            Usuario novoUsuario = new Usuario();
             novoUsuario.setUsuario(usuario);
             novoUsuario.setSenha(senha);
             novoUsuario.setNome(nome);
@@ -218,7 +225,7 @@ public class UsuarioMB implements Serializable {
         return usuariosDB.size();
     }
 
-    public void setUsuariosDB(ArrayList<UsuarioMB> usuariosDB) {
+    public void setUsuariosDB(ArrayList<Usuario> usuariosDB) {
         this.usuariosDB = usuariosDB;
     }
 

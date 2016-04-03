@@ -12,6 +12,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import models.Usuario;
 
 /**
  *
@@ -81,7 +82,7 @@ public class IncidenteMB {
     
     
     public UsuarioMB pesquisaUsuario() {
-        UsuarioMB usuarioPesquisado = new UsuarioMB ();
+        Usuario usuarioPesquisado = new Usuario ();
         for (int i = 0; i < usuarioPesquisado.getUsuariosDB().size(); i++) {
             if (usuarioPesquisado.getUsuariosDB().get(i).getNome().equals(pesquisaUsuario)) {
                 return usuarioPesquisado.getUsuariosDB().get(i);
