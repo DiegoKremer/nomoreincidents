@@ -11,6 +11,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import models.Usuario;
 
 /**
  *
@@ -24,6 +25,7 @@ public class UsuarioMB implements Serializable {
     // Dados para login
     private String usuario;
     private String senha;
+    private boolean logado = false;
 
     //Dados gerais de cadastro
     private String nome;
@@ -32,6 +34,8 @@ public class UsuarioMB implements Serializable {
     private String email;
     private char tipoUsuario;
 
+    
+    
     //Armazena dados
     ArrayList<UsuarioMB> usuariosDB = new ArrayList<UsuarioMB>();
 
@@ -39,6 +43,7 @@ public class UsuarioMB implements Serializable {
      * Creates a new instance of usuarioMB
      */
     public UsuarioMB() {
+        usuariosDB.add(new Usuario())
 
     }
     /*
@@ -50,16 +55,14 @@ public class UsuarioMB implements Serializable {
     public String verificaDadosUsuario() {
         for (int i = 0; i < usuariosDB.size(); i++) {
             if (this.getUsuario().equals(usuariosDB.get(i).getUsuario()) && this.getSenha().equals(usuariosDB.get(i).getSenha()) && this.getTipoUsuario() == 'A') {
-
+                logado = true;
                 return "index_admin";
 
             } else if (this.getUsuario().equals(usuariosDB.get(i).getUsuario()) && this.getSenha().equals(usuariosDB.get(i).getSenha()) && this.getTipoUsuario() == 'U') {
-
+                logado = true;
                 return "index";
 
-            } else {
-
-            }
+            } 
         }
 
         usuario = "";
@@ -74,6 +77,10 @@ public class UsuarioMB implements Serializable {
 
         return "login";
 
+    }
+    
+    public boolean isLogado () {
+        return logado;
     }
 
     public String getUsuario() {
