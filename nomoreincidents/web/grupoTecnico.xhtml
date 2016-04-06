@@ -2,7 +2,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
@@ -13,27 +12,40 @@
 
     <h:body>
         <h1>Grupo técnico</h1>
-        <p:dataTable var="novoGrupo" value="#{grupotecnicoMB.grupoTecnicoDB}" >
-            <p:column headerText="Nome">
-                <h:outputText value="#{novoGrupo.nome}" />
-            </p:column>
-
-            <p:column headerText="Email">
-                <h:outputText value="#{novoGrupo.email}" />
-            </p:column>
-
-            <p:column headerText="Membros">
-                <h:outputText value="#{novoGrupo.membros}" />
-            </p:column>
-
-            <p:column headerText="Telefone">
-                <h:outputText value="#{novoGrupo.telefone}" />
-            </p:column>
-        </p:dataTable>
+        <h:dataTable var="novoGrupo" value="#{grupotecnicoMB.grupoTecnicoDB}" >
+            <f:facet name="header">
+                <h:outputText value="Tabela de Grupo Técnico" />
+            </f:facet>
+                      
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Nome" />
+                </f:facet>
+                <h:outputText id="idNome" value="#{novoGrupo.nome}"  />
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Email" />
+                </f:facet>
+                <h:outputText id="idEmail" value="#{novoGrupo.email}" />
+            </h:column>
+<!--            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Email" />
+                </f:facet>
+                <h:outputText id="idMembros" value="#{novoGrupo.membros}" />
+            </h:column>-->
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Sexo" />
+                </f:facet>
+                <h:outputText  id="idTelefone" value="#{novoGrupo.telefone}"/>
+            </h:column>
+        </h:dataTable>
         <br></br>
         <h:form>
-            <p:commandButton value="Menu" action="menu"/>
-            <p:commandButton value="Adicionar Grupo Técnico" action="cadastrarGrupoTecnico"/>
+            <h:commandButton value="Menu" action="menu"/>
+            <h:button value="Adicionar Grupo Técnico" outcome="cadastrarGrupoTecnico"/>
         </h:form>
     </h:body>
 

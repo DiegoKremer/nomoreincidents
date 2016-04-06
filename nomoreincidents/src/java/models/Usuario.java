@@ -6,12 +6,12 @@
 package models;
 
 /**
- *
  * @author marce
  */
+
 public class Usuario {
     
-<<<<<<< HEAD
+
     // Dados para login
     private String usuario;
     private String senha;
@@ -95,9 +95,5 @@ public class Usuario {
         this.tipoUsuario = tipoUsuario;
     }
   
-=======
-    
->>>>>>> origin/master
-    
-    
+
 }

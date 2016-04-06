@@ -81,8 +81,8 @@ public class IncidenteMB {
     }
     
     
-    public UsuarioMB pesquisaUsuario() {
-        Usuario usuarioPesquisado = new Usuario ();
+    public Usuario pesquisaUsuario() {
+        UsuarioMB usuarioPesquisado = new UsuarioMB ();
         for (int i = 0; i < usuarioPesquisado.getUsuariosDB().size(); i++) {
             if (usuarioPesquisado.getUsuariosDB().get(i).getNome().equals(pesquisaUsuario)) {
                 return usuarioPesquisado.getUsuariosDB().get(i);
