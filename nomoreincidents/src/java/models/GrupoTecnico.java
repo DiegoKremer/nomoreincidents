@@ -7,12 +7,15 @@ package models;
 
 import ManagedBeans.UsuarioMB;
 
+
+
+
+
 /**
  *
  * @author marcelo
  */
 public class GrupoTecnico {
-    
     private String nome;
     private String email;
     private String telefone;
@@ -24,14 +27,6 @@ public class GrupoTecnico {
 
     public GrupoTecnico() {
     }
-
-    public GrupoTecnico(String nome, String email, String telefone, UsuarioMB[] membros) {
-        this.nome = nome;
-        this.email = email;
-        this.telefone = telefone;
-        this.membros = membros;
-    }
-    
     
     
 
