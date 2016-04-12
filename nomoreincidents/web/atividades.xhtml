@@ -13,29 +13,29 @@
 
     <h:body>
         <h1>Atividades</h1>
-        <p:dataTable var="atividades" value="#{atividadeMB.atividadeDB}">
+        <p:dataTable var="novaAtividade" value="#{atividadeMB.atividadeDB}">
             <p:column headerText="Analista">
-                <h:outputText value="#{atividadeMB.analista}" />
+                <h:outputText value="#{novaAtividade.analista}" />
             </p:column>
 
             <p:column headerText="Incidente">
-                <h:outputText value="#{atividadeMB.incidente}" />
+                <h:outputText value="#{novaAtividade.incidente}" />
             </p:column>
 
             <p:column headerText="Equipe">
-                <h:outputText value="#{atividadeMB.grupoTecnico}" />
+                <h:outputText value="#{novaAtividade.grupoTecnico}" />
             </p:column>
             
             <p:column headerText="Data">
-                <h:outputText value="#{atividadeMB.data}" />
+                <h:outputText value="#{novaAtividade.data}" />
             </p:column>
             
             <p:column headerText="Hora">
-                <h:outputText value="#{atividadeMB.hora}" />
+                <h:outputText value="#{novaAtividade.hora}" />
             </p:column>
             
             <p:column headerText="Numero interno">
-                <h:outputText value="#{atividadeMB.numeroInterno}" />
+                <h:outputText value="#{novaAtividade.numeroInterno}" />
             </p:column>
         </p:dataTable>
          <br></br>

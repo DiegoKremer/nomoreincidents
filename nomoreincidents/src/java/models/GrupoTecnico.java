@@ -7,26 +7,29 @@ package models;
 
 import ManagedBeans.UsuarioMB;
 
-
-
-
-
 /**
  *
  * @author marcelo
  */
 public class GrupoTecnico {
+    
     private String nome;
     private String email;
     private String telefone;
-    private UsuarioMB[] membros;
-
-    
-    
+    private Usuario[] membros;
     
 
     public GrupoTecnico() {
+        
     }
+
+    public GrupoTecnico(String nome, String email, String telefone, Usuario[] membros) {
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+        this.membros = membros;
+    }
+    
     
     
 
@@ -54,11 +57,15 @@ public class GrupoTecnico {
         this.telefone = telefone;
     }
 
-    public UsuarioMB[] getMembros() {
+    public Usuario[] getMembros() {
         return membros;
     }
+    
+    public void addMembro () {
+        
+    }
 
-    public void setMembros(UsuarioMB[] membros) {
+    public void setMembros(Usuario[] membros) {
         this.membros = membros;
     }
     

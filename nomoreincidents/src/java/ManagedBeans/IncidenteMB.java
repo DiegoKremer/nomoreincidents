@@ -7,35 +7,31 @@
 package ManagedBeans;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
+import models.Incidente;
+import models.Usuario;
 
 /**
  *
  * @author Diego Kremer
  */
-@ManagedBean
+@Named(value = "incidenteMB")
 @ApplicationScoped
 public class IncidenteMB {
     
-    private int numero;
-    private String numeroRef;
-    private String localidade;
-    private UsuarioMB usuario;
-    private String pesquisaUsuario;
-    private Date data;
-    private String descricao;
+    Incidente incidente; 
     
-    
-    ArrayList<IncidenteMB> incidenteDB = new ArrayList();
+    List<IncidenteMB> incidenteDB;
     
     // Construtores
     
     public IncidenteMB() {
-        
+        incidente = new Incidente();
+        incidenteDB = new ArrayList<>();
     }
     
     
@@ -43,21 +39,22 @@ public class IncidenteMB {
     
     public void registraIncidente() {
         
-        IncidenteMB novoIncidente = new IncidenteMB();
+        Incidente novoIncidente = new Incidente();
+        
         
         novoIncidente.setNumero(geraNumeroIncidente());
-        novoIncidente.setNumeroRef(numeroRef);
-        novoIncidente.setLocalidade(localidade);
-        novoIncidente.setUsuario(usuario);
-        novoIncidente.setData(data);
-        novoIncidente.setDescricao(descricao);
+        novoIncidente.setNumeroRef(incidente.getNumeroRef());
+        novoIncidente.setLocalidade(incidente.getLocalidade());
+        novoIncidente.setUsuario(incidente.getUsuario());
+        novoIncidente.setData(incidente.getData());
+        novoIncidente.setDescricao(incidente.getDescricao());
         
-        numero = geraNumeroIncidente();
-        numeroRef = "";
-        localidade = "";
-        usuario = null;
-        data = null;
-        descricao = "";
+        incidente.setNumero(geraNumeroIncidente()); 
+        incidente.setNumeroRef("");
+        incidente.setLocalidade("");
+        incidente.setUsuario(null);
+        incidente.setData(null);
+        incidente.setDescricao("");
         
         
         FacesContext contexto = FacesContext.getCurrentInstance();
@@ -71,16 +68,17 @@ public class IncidenteMB {
     }
     
     public int geraNumeroIncidente() {
+        int numero = 0;
         if (incidenteDB.isEmpty()) {
             return numero = 1;
         } else {
-        numero = incidenteDB.get(incidenteDB.size()).getNumero() + 1;
+        numero = incidenteDB.get(incidenteDB.size() + 1);
         return numero;
         }
     }
     
     
-    public UsuarioMB pesquisaUsuario() {
+    public Usuario pesquisaUsuario() {
         UsuarioMB usuarioPesquisado = new UsuarioMB ();
         for (int i = 0; i < usuarioPesquisado.getUsuariosDB().size(); i++) {
             if (usuarioPesquisado.getUsuariosDB().get(i).getNome().equals(pesquisaUsuario)) {
@@ -102,65 +100,27 @@ public class IncidenteMB {
     
     
     // Gets e Setters
-    public int getNumero() {
-        return numero;
+
+    public Incidente getNovoIncidente() {
+        return incidente;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setNovoIncidente(Incidente novoIncidente) {
+        this.incidente = novoIncidente;
     }
 
-    public String getNumeroRef() {
-        return numeroRef;
-    }
+   
 
-    public void setNumeroRef(String numeroRef) {
-        this.numeroRef = numeroRef;
-    }
-
-    public String getLocalidade() {
-        return localidade;
-    }
-
-    public void setLocalidade(String localidade) {
-        this.localidade = localidade;
-    }
-
-    public UsuarioMB getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(UsuarioMB usuario) {
-        this.usuario = usuario;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getPesquisaUsuario() {
-        return pesquisaUsuario;
-    }
-
-    public void setPesquisaUsuario(String pesquisaUsuario) {
-        this.pesquisaUsuario = pesquisaUsuario;
-    }
-
-    public ArrayList<IncidenteMB> getIncidenteDB() {
+    public List<IncidenteMB> getIncidenteDB() {
         return incidenteDB;
     }
+
+    public void setIncidenteDB(List<IncidenteMB> incidenteDB) {
+        this.incidenteDB = incidenteDB;
+    }
+    
+
+  
 
     public void setIncidenteDB(ArrayList<IncidenteMB> incidenteDB) {
         this.incidenteDB = incidenteDB;

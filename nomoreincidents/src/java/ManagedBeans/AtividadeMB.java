@@ -11,6 +11,7 @@ import java.util.Date;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
+import models.Atividade;
 
 
 /**
@@ -18,18 +19,11 @@ import javax.inject.Named;
  * @author Diego Kremer
  */
 @Named(value = "atividadeMB")
-@ManagedBean
 @ApplicationScoped
 public class AtividadeMB {
     
-    private int numeroInterno;
-    private UsuarioMB analista;
-    private IncidenteMB incidente;
-    private GrupotecnicoMB grupoTecnico;
-    private Date data;
-    private Date hora;
     
-    
+    Atividade novaAtividade = new Atividade();
     ArrayList<AtividadeMB> atividadeDB = new ArrayList();
 
     /**
@@ -46,53 +40,7 @@ public class AtividadeMB {
     }
     
     // Getters and Setters
-    public int getNumeroInterno() {
-        return numeroInterno;
-    }
 
-    public void setNumeroInterno(int numeroInterno) {
-        this.numeroInterno = numeroInterno;
-    }
-
-    public UsuarioMB getAnalista() {
-        return analista;
-    }
-
-    public void setAnalista(UsuarioMB analista) {
-        this.analista = analista;
-    }
-
-    public IncidenteMB getIncidente() {
-        return incidente;
-    }
-
-    public void setIncidente(IncidenteMB incidente) {
-        this.incidente = incidente;
-    }
-
-    public GrupotecnicoMB getGrupoTecnico() {
-        return grupoTecnico;
-    }
-
-    public void setGrupoTecnico(GrupotecnicoMB grupoTecnico) {
-        this.grupoTecnico = grupoTecnico;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-
-    public Date getHora() {
-        return hora;
-    }
-
-    public void setHora(Date hora) {
-        this.hora = hora;
-    }
 
     public ArrayList<AtividadeMB> getAtividadeDB() {
         return atividadeDB;
@@ -100,6 +48,14 @@ public class AtividadeMB {
 
     public void setAtividadeDB(ArrayList<AtividadeMB> atividadeDB) {
         this.atividadeDB = atividadeDB;
+    }
+
+    public Atividade getNovaAtividade() {
+        return novaAtividade;
+    }
+
+    public void setNovaAtividade(Atividade novaAtividade) {
+        this.novaAtividade = novaAtividade;
     }
     
     

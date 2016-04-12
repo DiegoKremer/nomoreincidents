@@ -14,25 +14,25 @@
     <h:body>
         <h1>Usuários</h1>
         
-        <p:dataTable var="Usuários" value="#{usuarioMB.usuariosDB}">
+        <p:dataTable var="usuario" value="#{usuarioMB.usuariosDB}">
             <p:column headerText="Nome">
-                <h:outputText value="#{usuarioMB.nome}" />
+                <h:outputText value="#{usuario.nome}" />
             </p:column>
 
             <p:column headerText="Cargo">
-                <h:outputText value="#{usuarioMB.cargo}" />
+                <h:outputText value="#{usuario.cargo}" />
             </p:column>
 
             <p:column headerText="Email">
-                <h:outputText value="#{usuarioMB.email}" />
+                <h:outputText value="#{usuario.email}" />
             </p:column>
 
             <p:column headerText="Tipo">
-                <h:outputText value="#{usuarioMB.tipoUsuario}" />
+                <h:outputText value="#{usuario.tipoUsuario}" />
             </p:column>
             
             <p:column headerText="Telefone">
-                <h:outputText value="#{usuarioMB.telefone}" />
+                <h:outputText value="#{usuario.telefone}" />
             </p:column>
         </p:dataTable>
         <br></br>
