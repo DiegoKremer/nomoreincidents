@@ -5,8 +5,6 @@
  */
 package models;
 
-import ManagedBeans.UsuarioMB;
-
 /**
  *
  * @author marcelo

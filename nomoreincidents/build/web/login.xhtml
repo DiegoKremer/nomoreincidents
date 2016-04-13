@@ -11,14 +11,14 @@
         <h:form>
             <h:panelGrid columns="3">
                 <h:outputLabel value="Usuário: " for="idUsuario" />
-                <h:inputText value="#{usuarioMB.usuario}" id="idUsuario"/>
+                <h:inputText value="#{usuarioMB.usuario.usuario}" id="idUsuario"/>
                 <br></br>
                 <h:outputLabel value="Senha: " for="idSenha" />
-                <h:inputSecret value="#{usuarioMB.senha}" id="idSenha"/>
+                <h:inputSecret value="#{usuarioMB.usuario.senha}" id="idSenha"/>
                 </h:panelGrid>
                 <p:commandButton value="Logar" action="#{usuarioMB.verificaDadosUsuario()}"/>
-
                 <p:commandButton value="Cadastrar" action="cadastrarUsuario"/>
+                <h:messages />
         </h:form>           
     </h:body>
 </html>

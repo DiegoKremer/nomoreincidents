@@ -37,11 +37,15 @@
                 </h:selectOneRadio>
             </h:panelGrid>
                 <br/>
-                <p:commandButton value="Cadastrar" action="#{usuarioMB.cadastraUsuario()}"/>
+                <p:commandButton value="Cadastrar" action="#{usuarioMB.cadastraUsuario()}">
+                    <f:ajax render="@form" resetValues="true"/>
+                </p:commandButton>
                 <br/>
                 <br/>
                 <p:commandButton value="Voltar" action="login"/>
+               
                 <p:commandButton value="Usuários" action="usuarios"/>
+                
                 <h:messages/>
         </h:form>
     </h:body>

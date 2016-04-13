@@ -21,9 +21,9 @@
                 <h:inputText value="#{grupotecnicoMB.novoGrupo.telefone}" id="idTelefone"/>
                 <br/>
                 <h:outputLabel value="Membros: " for="idMembros" />
-                <h:selectManyListbox value="#{grupotecnicoMB.novoGrupo.membros}" id="idMembros">
+                <!--<h:selectManyListbox value="#{grupotecnicoMB.novoGrupo.membros}" id="idMembros">
                     <f:selectItems value="#{usuarioMB.usuariosDB}" />
-                </h:selectManyListbox>
+                </h:selectManyListbox>-->
                 
                 <br/>
                 <br/>
@@ -33,7 +33,7 @@
             
             <p:commandButton value="Cadastrar" action="#{grupotecnicoMB.cadastraGrupo()}"/>
             <br/>
-            <p:button value="Menu" outcome="grupoTecnico"/>
+            <p:button value="Menu" outcome="menu"/>
 
         </h:form>
         

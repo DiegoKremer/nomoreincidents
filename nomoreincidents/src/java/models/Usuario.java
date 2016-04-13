@@ -6,7 +6,7 @@
 package models;
 
 /**
- * @author marce
+ * @author marcelo
  */
 
 public class Usuario {
@@ -35,6 +35,11 @@ public class Usuario {
         this.telefone = telefone;
         this.email = email;
         this.tipoUsuario = tipoUsuario;
+    }
+
+    public Usuario(String admin, String senha) {
+        this.usuario = admin;
+        this.senha = senha;
     }
     
     

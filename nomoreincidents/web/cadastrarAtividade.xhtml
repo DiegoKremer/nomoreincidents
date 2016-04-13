@@ -9,7 +9,30 @@
     <h:body>
         <h1>Registrar Atividade</h1>
         <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Analista: " for="idAnalista"  />
+                <h:inputText  value="#{atividadeMB.novaAtividade.analista}" id="idAnalista"/>
+                <br/>
+                <h:outputLabel value="Incidente: " for="idIncidente" />
+                <h:inputText value="#{atividadeMB.novaAtividade.incidente}" id="idIncidente"/>
+                <br/>
+                <h:outputLabel value="Grupo Técnico: " for="idGrupo" />
+                <h:inputText value="#{atividadeMB.novaAtividade.grupoTecnico}" id="idGrupo"/>
+                <br/>
+                <h:outputLabel value="Data: " for="idData" />
+                <h:inputText value="#{atividadeMB.novaAtividade.data}" id="idData"/>
+                <br/>
+                <h:outputLabel value="Hora: " for="idHora" />
+                <h:inputText value="#{atividadeMB.novaAtividade.hora}" id="idHora"/>
+                <br/>
+                <br/>
+
+
+            </h:panelGrid>  
             
+            <p:commandButton value="Cadastrar" action="#{atividadeMB.registraAtividade()}"/>
+            <br/>
+            <p:button value="Menu" outcome="menu"/>
             
             
         </h:form>

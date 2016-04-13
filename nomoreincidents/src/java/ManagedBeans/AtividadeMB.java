@@ -6,10 +6,10 @@
 
 package ManagedBeans;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 import models.Atividade;
 
@@ -20,35 +20,30 @@ import models.Atividade;
  */
 @Named(value = "atividadeMB")
 @ApplicationScoped
-public class AtividadeMB {
+public class AtividadeMB implements Serializable {
     
     
-    Atividade novaAtividade = new Atividade();
-    ArrayList<AtividadeMB> atividadeDB = new ArrayList();
+    private Atividade novaAtividade;
+    private List<Atividade> atividadeDB;
 
     /**
      * Creates a new instance of atividadeMB
      */
     public AtividadeMB() {
-        
+        novaAtividade = new Atividade();
+        atividadeDB = new ArrayList<>();
     }
     
     // Metodos
     
-    public void registraAtividade () {
+    public String registraAtividade () {
+        atividadeDB.add(novaAtividade);
+        this.novaAtividade = new Atividade();
+        return "atividades?faces-redirect=true";
     
     }
     
     // Getters and Setters
-
-
-    public ArrayList<AtividadeMB> getAtividadeDB() {
-        return atividadeDB;
-    }
-
-    public void setAtividadeDB(ArrayList<AtividadeMB> atividadeDB) {
-        this.atividadeDB = atividadeDB;
-    }
 
     public Atividade getNovaAtividade() {
         return novaAtividade;
@@ -57,6 +52,17 @@ public class AtividadeMB {
     public void setNovaAtividade(Atividade novaAtividade) {
         this.novaAtividade = novaAtividade;
     }
+
+    public List<Atividade> getAtividadeDB() {
+        return atividadeDB;
+    }
+
+    public void setAtividadeDB(List<Atividade> atividadeDB) {
+        this.atividadeDB = atividadeDB;
+    }
+
+    
+    
     
     
     

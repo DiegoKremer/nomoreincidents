@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='ISO-8859-1' ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -9,8 +9,8 @@
     </h:head>
     <h:body>
         <h1>Cadastro de Grupo Tecnico</h1>
-        <h:form > 
-            <h:panelGrid columns="1">
+        <h:form> 
+            <h:panelGrid columns="3">
                 <h:outputLabel value="Nome: " for="idNome"  />
                 <h:inputText  value="#{grupotecnicoMB.novoGrupo.nome}" id="idNome"/>
                 <br/>
@@ -20,19 +20,24 @@
                 <h:outputLabel value="Telefone: " for="idTelefone" />
                 <h:inputText value="#{grupotecnicoMB.novoGrupo.telefone}" id="idTelefone"/>
                 <br/>
-                <h:selectOneMenu value="#{grupotecnicoMB.novoGrupo.membros}">
+                <h:outputLabel value="Membros: " for="idMembros" />
+                <!--<h:selectManyListbox value="#{grupotecnicoMB.novoGrupo.membros}" id="idMembros">
+                    <f:selectItems value="#{usuarioMB.usuariosDB}" />
+                </h:selectManyListbox>-->
+                
+                <br/>
+                <br/>
 
-                    <f:selectItem itemValue="1" itemLabel="Item 1" />
-                    <f:selectItem itemValue="2" itemLabel="Item 2" />
-                </h:selectOneMenu>
-                <br/>
-                <br/>
-                <h:commandButton value="Cadastrar" action="#{grupotecnicoMB.cadastraGrupo()}"/>
-                <br/>
-                <h:commandButton value="Menu" action="menu"/>
-              
+
             </h:panelGrid>  
+            
+            <p:commandButton value="Cadastrar" action="#{grupotecnicoMB.cadastraGrupo()}"/>
+            <br/>
+            <p:button value="Menu" outcome="menu"/>
+
         </h:form>
+        
+        <h:messages/>
     </h:body>
 </html>
 

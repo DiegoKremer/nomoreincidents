@@ -7,6 +7,7 @@ package ManagedBeans;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -24,40 +25,40 @@ public class UsuarioMB implements Serializable {
 
 
     private boolean logado = false;
-    private Usuario usuario;
+    private Usuario novoUsuario;
     
     //Armazena dados
-    ArrayList<Usuario> usuariosDB;
+    List<Usuario> usuariosDB;
 
     /**
      * Creates a new instance of usuarioMB
      */
     public UsuarioMB() {
-        usuario = new Usuario ();
+        novoUsuario = new Usuario ();
         usuariosDB = new ArrayList<>();
-        
+        usuariosDB.add(new Usuario("admin", "admin"));
     }
     /*
-     public usuarioMB(String usuario, String senha, String nome,  String cargo, String telefone, String email, char tipoUsuario) {
+     public usuarioMB(String novoUsuario, String senha, String nome,  String cargo, String telefone, String email, char tipoUsuario) {
         
      }
      */
 
     public String verificaDadosUsuario() {
         for (int i = 0; i < usuariosDB.size(); i++) {
-            if (usuario.getUsuario().equals(usuariosDB.get(i).getUsuario()) && usuario.getSenha().equals(usuariosDB.get(i).getSenha()) && usuario.getTipoUsuario() == 'A') {
+            if (novoUsuario.getUsuario().equals(usuariosDB.get(i).getUsuario()) && novoUsuario.getSenha().equals(usuariosDB.get(i).getSenha()) && novoUsuario.getTipoUsuario() == 'A') {
                 logado = true;
                 return "index_admin";
 
-            } else if (usuario.getUsuario().equals(usuariosDB.get(i).getUsuario()) && usuario.getSenha().equals(usuariosDB.get(i).getSenha()) && usuario.getTipoUsuario() == 'U') {
+            } else if (novoUsuario.getUsuario().equals(usuariosDB.get(i).getUsuario()) && novoUsuario.getSenha().equals(usuariosDB.get(i).getSenha()) && novoUsuario.getTipoUsuario() == 'U') {
                 logado = true;
                 return "index";
 
             } 
         }
 
-        usuario.setUsuario("");
-        usuario.setSenha("");
+        novoUsuario.setUsuario("");
+        novoUsuario.setSenha("");
         
         FacesContext contexto = FacesContext.getCurrentInstance();
         FacesMessage mensagem = new FacesMessage(
@@ -76,13 +77,13 @@ public class UsuarioMB implements Serializable {
     }
 
 
-    public ArrayList<Usuario> getUsuariosDB() {
+    public List<Usuario> getUsuariosDB() {
         return usuariosDB;
     }
 
     public void cadastraUsuario() {
 
-        if (usuario.getUsuario().length() <= 2) {
+        if (novoUsuario.getUsuario().length() <= 2) {
             FacesContext contexto = FacesContext.getCurrentInstance();
             FacesMessage mensagem = new FacesMessage(
                     FacesMessage.SEVERITY_WARN,
@@ -90,7 +91,8 @@ public class UsuarioMB implements Serializable {
                     "O usuário deve conter no minimo 3 caracteres");
             contexto.addMessage(null, mensagem);
             System.out.println("Campo usuario inválido");
-        } else if (usuario.getSenha().length() <= 4) {
+            
+        } else if (novoUsuario.getSenha().length() <= 4) {
             FacesContext contexto = FacesContext.getCurrentInstance();
             FacesMessage mensagem = new FacesMessage(
                     FacesMessage.SEVERITY_WARN,
@@ -98,7 +100,7 @@ public class UsuarioMB implements Serializable {
                     "A senha deve conter no minimo 5 caracteres");
             contexto.addMessage(null, mensagem);
             System.out.println("Campo senha inválido");
-        } else if (usuario.getNome().length() <= 2) {
+        } else if (novoUsuario.getNome().length() <= 2) {
             FacesContext contexto = FacesContext.getCurrentInstance();
             FacesMessage mensagem = new FacesMessage(
                     FacesMessage.SEVERITY_WARN,
@@ -107,7 +109,7 @@ public class UsuarioMB implements Serializable {
             contexto.addMessage(null, mensagem);
             System.out.println("Campo nome inválido");
             
-        } else if (usuario.getTipoUsuario() != 'A' && usuario.getTipoUsuario() != 'U' && usuario.getTipoUsuario() != 'C') {
+        } else if (novoUsuario.getTipoUsuario() != 'A' && novoUsuario.getTipoUsuario() != 'U' && novoUsuario.getTipoUsuario() != 'C') {
             
             FacesContext contexto = FacesContext.getCurrentInstance();
             FacesMessage mensagem = new FacesMessage(
@@ -119,19 +121,21 @@ public class UsuarioMB implements Serializable {
             
         } else {
             
-            Usuario novoUsuario = new Usuario();
-            novoUsuario.setUsuario(usuario.getUsuario());
-            novoUsuario.setSenha(usuario.getSenha());
-            novoUsuario.setNome(usuario.getNome());
-            novoUsuario.setCargo(usuario.getCargo());
-            novoUsuario.setTelefone(usuario.getTelefone());
-            novoUsuario.setEmail(usuario.getEmail());
-            novoUsuario.setTipoUsuario(usuario.getTipoUsuario());
+//            Usuario novoUsuario = new Usuario();
+//            novoUsuario.setUsuario(this.novoUsuario.getUsuario());
+//            novoUsuario.setSenha(this.novoUsuario.getSenha());
+//            novoUsuario.setNome(this.novoUsuario.getNome());
+//            novoUsuario.setCargo(this.novoUsuario.getCargo());
+//            novoUsuario.setTelefone(this.novoUsuario.getTelefone());
+//            novoUsuario.setEmail(this.novoUsuario.getEmail());
+//            novoUsuario.setTipoUsuario(this.novoUsuario.getTipoUsuario());
             
             usuariosDB.add(novoUsuario);
-
-            limpaUsuario(usuario);
-
+                       
+            this.novoUsuario = new Usuario();
+            
+            //limpaUsuario(this.novoUsuario);
+            
             FacesContext contexto = FacesContext.getCurrentInstance();
             FacesMessage mensagem = new FacesMessage(
                     FacesMessage.SEVERITY_INFO,
@@ -162,22 +166,31 @@ public class UsuarioMB implements Serializable {
     }
 
     public Usuario getUsuario() {
-        return usuario;
+        return novoUsuario;
     }
 
     public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+        this.novoUsuario = usuario;
     }
     
-    public void limpaUsuario(Usuario usuario) {
-        
-        usuario.setUsuario("");
-        usuario.setSenha("");
-        usuario.setNome("");
-        usuario.setCargo("");
-        usuario.setTelefone("");
-        usuario.setEmail("");
-    
+//    public String limpaUsuario() {
+//        
+//        novoUsuario.setUsuario("");
+//        novoUsuario.setSenha("");
+//        novoUsuario.setNome("");
+//        novoUsuario.setCargo("");
+//        novoUsuario.setTelefone("");
+//        novoUsuario.setEmail("");
+//        
+//        return "cadastrarUsuario";
+//    }
+
+    public Usuario getNovoUsuario() {
+        return novoUsuario;
+    }
+
+    public void setNovoUsuario(Usuario novoUsuario) {
+        this.novoUsuario = novoUsuario;
     }
     
     

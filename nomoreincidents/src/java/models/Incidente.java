@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  *
- * @author marce
+ * @author marcelo
  */
 public class Incidente {
     
