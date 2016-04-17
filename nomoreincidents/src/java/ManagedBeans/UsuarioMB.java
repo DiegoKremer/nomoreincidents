@@ -23,6 +23,8 @@ import models.Usuario;
 @ApplicationScoped
 public class UsuarioMB implements Serializable {
     
+    private String username;
+    private String password;
    
     private boolean logado;
     private Usuario novoUsuario;
@@ -46,15 +48,15 @@ public class UsuarioMB implements Serializable {
      */
 
     public String verificaDadosUsuario() {
-            if (usuariosDB.contains(novoUsuario)) {
-                logado = true;
-                if (novoUsuario.getTipoUsuario() == 'A') {
-                    
+        for (int i = 0; i < usuariosDB.size(); i++) {
+            
+            if (usuariosDB.get(i).getUsuario().equals(novoUsuario.getUsuario()) 
+                    && usuariosDB.get(i).getSenha().equals(novoUsuario.getSenha())) {
+                
+                if (isAdmin(usuariosDB.get(i))) {
                     return ("index_admin?faces-redirect=true");
-                } else if (novoUsuario.getTipoUsuario() == 'U'){
-                    
+                } else if (isUsuario(usuariosDB.get(i))) {
                     return ("index?faces-redirect=true");
-                } 
                 } else {
                     novoUsuario.setUsuario("");
                     novoUsuario.setSenha("");
@@ -68,10 +70,32 @@ public class UsuarioMB implements Serializable {
                     System.out.println("Usuario deve estar cadastrado");
 
                     return ("login?faces-redirect=true");
-                
-           }
+                }
             
-           return "index";
+            }
+        
+        }
+        
+        return ("login?faces-redirect=true");
+    }
+    
+    
+   
+    
+    public boolean isAdmin (Usuario usuario) {
+        if (usuario.getTipoUsuario() == 'A') {
+            return true;
+        } else  {
+            return false;
+        }
+    }
+    
+    public boolean isUsuario (Usuario usuario) {
+        if (usuario.getTipoUsuario() == 'U') {
+            return true;
+        } else  {
+            return false;
+        }
     }
     
     public boolean isLogado () {
