@@ -24,7 +24,7 @@ import models.Usuario;
 public class UsuarioMB implements Serializable {
 
 
-    private boolean logado = false;
+    private boolean logado;
     private Usuario novoUsuario;
     
     //Armazena dados
@@ -37,6 +37,7 @@ public class UsuarioMB implements Serializable {
         novoUsuario = new Usuario ();
         usuariosDB = new ArrayList<>();
         usuariosDB.add(new Usuario("admin", "admin"));
+        logado = false;
     }
     /*
      public usuarioMB(String novoUsuario, String senha, String nome,  String cargo, String telefone, String email, char tipoUsuario) {
@@ -48,16 +49,15 @@ public class UsuarioMB implements Serializable {
         for (int i = 0; i < usuariosDB.size(); i++) {
             if (novoUsuario.getUsuario().equals(usuariosDB.get(i).getUsuario()) && novoUsuario.getSenha().equals(usuariosDB.get(i).getSenha()) && novoUsuario.getTipoUsuario() == 'A') {
                 logado = true;
-                return "index_admin";
+                return ("index_admin?faces-redirect=true");
 
             } else if (novoUsuario.getUsuario().equals(usuariosDB.get(i).getUsuario()) && novoUsuario.getSenha().equals(usuariosDB.get(i).getSenha()) && novoUsuario.getTipoUsuario() == 'U') {
                 logado = true;
-                return "index";
+                return ("index?faces-redirect=true");
 
-            } 
-        }
-
-        novoUsuario.setUsuario("");
+            } else {
+               
+                novoUsuario.setUsuario("");
         novoUsuario.setSenha("");
         
         FacesContext contexto = FacesContext.getCurrentInstance();
@@ -68,8 +68,14 @@ public class UsuarioMB implements Serializable {
         contexto.addMessage(null, mensagem);
         System.out.println("Usuario deve estar cadastrado");
 
+            return "login";
+            
+            }
+            
+            
+        }
+ 
         return "login";
-
     }
     
     public boolean isLogado () {
@@ -191,6 +197,12 @@ public class UsuarioMB implements Serializable {
 
     public void setNovoUsuario(Usuario novoUsuario) {
         this.novoUsuario = novoUsuario;
+    }
+    
+    public String realizaLogout() {
+        FacesContext contexto = FacesContext.getCurrentInstance();
+        contexto.getExternalContext().invalidateSession();
+        return ("login?faces-redirect=true");
     }
     
     
