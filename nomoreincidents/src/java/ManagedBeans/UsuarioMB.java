@@ -22,8 +22,8 @@ import models.Usuario;
 
 @ApplicationScoped
 public class UsuarioMB implements Serializable {
-
-
+    
+   
     private boolean logado;
     private Usuario novoUsuario;
     
@@ -47,29 +47,31 @@ public class UsuarioMB implements Serializable {
 
     public String verificaDadosUsuario() {
             if (usuariosDB.contains(novoUsuario)) {
+                logado = true;
                 if (novoUsuario.getTipoUsuario() == 'A') {
-                    logado = true;
+                    
                     return ("index_admin?faces-redirect=true");
                 } else if (novoUsuario.getTipoUsuario() == 'U'){
-                    logado = true;
+                    
                     return ("index?faces-redirect=true");
                 } 
                 } else {
                     novoUsuario.setUsuario("");
-                novoUsuario.setSenha("");
+                    novoUsuario.setSenha("");
         
-        FacesContext contexto = FacesContext.getCurrentInstance();
-        FacesMessage mensagem = new FacesMessage(
-                FacesMessage.SEVERITY_ERROR,
-                "Login inválido!",
-                "Usuario ou senha incorretos! Verifique os dados digitados.");
-        contexto.addMessage(null, mensagem);
-        System.out.println("Usuario deve estar cadastrado");
+                    FacesContext contexto = FacesContext.getCurrentInstance();
+                    FacesMessage mensagem = new FacesMessage(
+                    FacesMessage.SEVERITY_ERROR,
+                    "Login inválido!",
+                    "Usuario ou senha incorretos! Verifique os dados digitados.");
+                    contexto.addMessage(null, mensagem);
+                    System.out.println("Usuario deve estar cadastrado");
 
-            return "login";
+                    return ("login?faces-redirect=true");
                 
            }
             
+           return "index";
     }
     
     public boolean isLogado () {
@@ -192,6 +194,8 @@ public class UsuarioMB implements Serializable {
     public void setNovoUsuario(Usuario novoUsuario) {
         this.novoUsuario = novoUsuario;
     }
+    
+    
     
     public String realizaLogout() {
         FacesContext contexto = FacesContext.getCurrentInstance();
