@@ -9,8 +9,9 @@
     <h:body>
         <h1>Gerenciador de Incidentes</h1>
         <h:form>
-            
-            <p:commandButton value="Login" action="login"/>
+            <p:commandButton value="Registrar Incidente" action="cadastrarIncidente"/>
+            <p:commandButton value="Registrar Atividade" action="cadastrarAtividade"/>
+            <p:commandButton value="Logout" action="#{usuarioMB.realizaLogout()}"/>
         </h:form>
     </h:body>
 </html>

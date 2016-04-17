@@ -17,7 +17,7 @@ public class Incidente {
     private int numero;
     private String numeroRef;
     private String localidade;
-    private UsuarioMB usuario;
+    private Usuario usuario;
     private String pesquisaUsuario;
     private Date data;
     private String descricao;
@@ -27,7 +27,7 @@ public class Incidente {
     }
     
 
-    public Incidente(int numero, String numeroRef, String localidade, UsuarioMB usuario, String pesquisaUsuario, Date data, String descricao) {
+    public Incidente(int numero, String numeroRef, String localidade, Usuario usuario, String pesquisaUsuario, Date data, String descricao) {
         this.numero = numero;
         this.numeroRef = numeroRef;
         this.localidade = localidade;
@@ -61,11 +61,11 @@ public class Incidente {
         this.localidade = localidade;
     }
 
-    public UsuarioMB getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(UsuarioMB usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
