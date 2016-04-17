@@ -46,19 +46,17 @@ public class UsuarioMB implements Serializable {
      */
 
     public String verificaDadosUsuario() {
-        for (int i = 0; i < usuariosDB.size(); i++) {
-            if (novoUsuario.getUsuario().equals(usuariosDB.get(i).getUsuario()) && novoUsuario.getSenha().equals(usuariosDB.get(i).getSenha()) && novoUsuario.getTipoUsuario() == 'A') {
-                logado = true;
-                return ("index_admin?faces-redirect=true");
-
-            } else if (novoUsuario.getUsuario().equals(usuariosDB.get(i).getUsuario()) && novoUsuario.getSenha().equals(usuariosDB.get(i).getSenha()) && novoUsuario.getTipoUsuario() == 'U') {
-                logado = true;
-                return ("index?faces-redirect=true");
-
-            } else {
-               
-                novoUsuario.setUsuario("");
-        novoUsuario.setSenha("");
+            if (usuariosDB.contains(novoUsuario)) {
+                if (novoUsuario.getTipoUsuario() == 'A') {
+                    logado = true;
+                    return ("index_admin?faces-redirect=true");
+                } else if (novoUsuario.getTipoUsuario() == 'U'){
+                    logado = true;
+                    return ("index?faces-redirect=true");
+                } 
+                } else {
+                    novoUsuario.setUsuario("");
+                novoUsuario.setSenha("");
         
         FacesContext contexto = FacesContext.getCurrentInstance();
         FacesMessage mensagem = new FacesMessage(
@@ -69,13 +67,9 @@ public class UsuarioMB implements Serializable {
         System.out.println("Usuario deve estar cadastrado");
 
             return "login";
+                
+           }
             
-            }
-            
-            
-        }
- 
-        return "login";
     }
     
     public boolean isLogado () {

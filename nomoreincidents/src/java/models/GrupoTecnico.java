@@ -5,6 +5,8 @@
  */
 package models;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author marcelo
@@ -14,18 +16,20 @@ public class GrupoTecnico {
     private String nome;
     private String email;
     private String telefone;
-    private Usuario[] membros;
+    private ArrayList<Usuario> membros;
     
 
     public GrupoTecnico() {
+        this.membros = new ArrayList();
         
     }
 
     public GrupoTecnico(String nome, String email, String telefone, Usuario[] membros) {
+        this.membros = new ArrayList();
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
-        this.membros = membros;
+        
     }
     
     
@@ -55,16 +59,13 @@ public class GrupoTecnico {
         this.telefone = telefone;
     }
 
-    public Usuario[] getMembros() {
+    public ArrayList getMembros() {
         return membros;
     }
     
-    public void addMembro () {
-        
-    }
 
-    public void setMembros(Usuario[] membros) {
-        this.membros = membros;
+    public void setMembros(Usuario usuario) {
+        this.membros.add(usuario);
     }
     
     

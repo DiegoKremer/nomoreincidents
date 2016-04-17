@@ -24,8 +24,8 @@ import javax.servlet.http.HttpServletResponse;
  * @author Diego Kremer
  */
 
-@WebFilter(filterName = "FiltroAcesso", urlPatterns = {"/index_admin.xhtml"})
-public class FiltroAcesso implements Filter {
+@WebFilter(filterName = "FiltroAcessoAdmin", urlPatterns = {"/index_admin.xhtml"})
+public class FiltroAcessoAdmin implements Filter {
     
     @Inject 
     private UsuarioMB usuarioMB;
