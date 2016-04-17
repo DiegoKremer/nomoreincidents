@@ -38,7 +38,10 @@ public class UsuarioMB implements Serializable {
     public UsuarioMB() {
         novoUsuario = new Usuario ();
         usuariosDB = new ArrayList<>();
-        usuariosDB.add(new Usuario("admin", "admin"));
+        usuariosDB.add(new Usuario("diegokremer", "12345", "Diego Kremer", "Admin", "555555", "email@email", 'A'));
+        usuariosDB.add(new Usuario("marcelofritz", "12345", "Marcelo Fritz", "Admin", "555555", "email@email", 'A'));
+        usuariosDB.add(new Usuario("jurandircosta", "12345", "Jurandir Costa", "Analista", "555555", "email@email", 'U'));
+        usuariosDB.add(new Usuario("gerivaldapedreira", "12345", "Gerivalda Pedreira", "Colaborador", "555555", "email@email", 'C'));
         logado = false;
     }
     /*

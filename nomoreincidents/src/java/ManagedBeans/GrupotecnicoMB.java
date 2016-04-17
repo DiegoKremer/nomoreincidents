@@ -32,7 +32,6 @@ public class GrupotecnicoMB implements Serializable {
     }
 
     public String cadastraGrupo() {
-        System.out.println("Cadastrando grupo");
         grupoTecnicoDB.add(novoGrupo);
         this.novoGrupo = new GrupoTecnico();
         return "grupoTecnico?faces-redirect=true";
