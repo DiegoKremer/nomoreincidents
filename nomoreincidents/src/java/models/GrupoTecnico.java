@@ -65,7 +65,7 @@ public class GrupoTecnico {
     
 
     public void setMembros(ArrayList usuarios) {
-        this.membros = usuarios;
+        this.membros = usuarios; 
     }
     
     

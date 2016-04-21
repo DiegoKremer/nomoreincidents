@@ -6,7 +6,9 @@
 package models;
 
 import ManagedBeans.UsuarioMB;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -18,23 +20,25 @@ public class Incidente {
     private String numeroRef;
     private String localidade;
     private Usuario usuario;
-    private String pesquisaUsuario;
     private Date data;
     private String descricao;
     
-    public Incidente () {
+   
     
+    public Incidente () {
+        this.usuario = new Usuario();
     }
     
 
-    public Incidente(int numero, String numeroRef, String localidade, Usuario usuario, String pesquisaUsuario, Date data, String descricao) {
+    public Incidente(int numero, String numeroRef, String localidade, Usuario usuario, Date data, String descricao) {
+        this.usuario = new Usuario ();
         this.numero = numero;
         this.numeroRef = numeroRef;
         this.localidade = localidade;
         this.usuario = usuario;
-        this.pesquisaUsuario = pesquisaUsuario;
         this.data = data;
         this.descricao = descricao;
+        
     }
 
     public int getNumero() {
@@ -69,13 +73,6 @@ public class Incidente {
         this.usuario = usuario;
     }
 
-    public String getPesquisaUsuario() {
-        return pesquisaUsuario;
-    }
-
-    public void setPesquisaUsuario(String pesquisaUsuario) {
-        this.pesquisaUsuario = pesquisaUsuario;
-    }
 
     public Date getData() {
         return data;
@@ -92,6 +89,8 @@ public class Incidente {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+    
+
     
     
     

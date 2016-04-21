@@ -7,11 +7,11 @@
 package ManagedBeans;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import javax.faces.application.FacesMessage;
 import javax.enterprise.context.ApplicationScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import models.Incidente;
 
@@ -35,7 +35,13 @@ public class IncidenteMB implements Serializable {
     }
     
     
-    // Metodos
+   // Metodos
+    
+    public String dataAtual () {
+        SimpleDateFormat ft = new SimpleDateFormat ("dd/MM/yyyy");
+        Date dataAtual = new Date();
+        return ft.format(dataAtual);
+    }
     
     public String registraIncidente() {
         
@@ -56,15 +62,16 @@ public class IncidenteMB implements Serializable {
             return "incidentes?faces-redirect=true"; 
     }
     
-//    public int geraNumeroIncidente() {
-//        int numero = 0;
-//        if (incidenteDB.isEmpty()) {
-//            return numero = 1;
-//        } else {
-//        numero = incidenteDB.get(incidenteDB.size() + 1);
-//        return numero;
-//        }
-//    }
+    public int geraNumeroIncidente() {
+        int numero = 0;
+        int dbSize = incidenteDB.size();
+        if (incidenteDB.isEmpty()) {
+            return numero = 1;
+        } else {
+        numero = dbSize + 1;
+        return numero;
+        }
+    }
     
     
 //    public Usuario pesquisaUsuario() {

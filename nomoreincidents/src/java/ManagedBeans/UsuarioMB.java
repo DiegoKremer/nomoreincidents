@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
@@ -20,7 +21,7 @@ import models.Usuario;
  */
 @Named(value = "usuarioMB")
 
-@ApplicationScoped
+@SessionScoped
 public class UsuarioMB implements Serializable {
     
     private String username;
@@ -53,16 +54,16 @@ public class UsuarioMB implements Serializable {
     public String verificaDadosUsuario() {
         for (int i = 0; i < usuariosDB.size(); i++) {
             
-            if (usuariosDB.get(i).getUsuario().equals(novoUsuario.getUsuario()) 
-                    && usuariosDB.get(i).getSenha().equals(novoUsuario.getSenha())) {
+            if (usuariosDB.get(i).getUsuario().equals(this.username) 
+                    && usuariosDB.get(i).getSenha().equals(this.password)) {
                 
                 if (isAdmin(usuariosDB.get(i))) {
                     return ("index_admin?faces-redirect=true");
                 } else if (isUsuario(usuariosDB.get(i))) {
                     return ("index?faces-redirect=true");
                 } else {
-                    novoUsuario.setUsuario("");
-                    novoUsuario.setSenha("");
+                    username = "";
+                    password = "";
         
                     FacesContext contexto = FacesContext.getCurrentInstance();
                     FacesMessage mensagem = new FacesMessage(
@@ -163,7 +164,7 @@ public class UsuarioMB implements Serializable {
                        
             this.novoUsuario = new Usuario();
             
-            //limpaUsuario(this.novoUsuario);
+            limpaUsuario(this.novoUsuario);
             
             FacesContext contexto = FacesContext.getCurrentInstance();
             FacesMessage mensagem = new FacesMessage(
@@ -202,17 +203,18 @@ public class UsuarioMB implements Serializable {
         this.novoUsuario = usuario;
     }
     
-//    public String limpaUsuario() {
-//        
-//        novoUsuario.setUsuario("");
-//        novoUsuario.setSenha("");
-//        novoUsuario.setNome("");
-//        novoUsuario.setCargo("");
-//        novoUsuario.setTelefone("");
-//        novoUsuario.setEmail("");
-//        
-//        return "cadastrarUsuario";
-//    }
+    public Usuario limpaUsuario(Usuario usuario) {
+        
+        usuario.setUsuario("");
+        usuario.setSenha("");
+        usuario.setNome("");
+        usuario.setCargo("");
+        usuario.setTelefone("");
+        usuario.setEmail("");
+        
+        return usuario;
+        
+    }
 
     public Usuario getNovoUsuario() {
         return novoUsuario;
@@ -221,6 +223,25 @@ public class UsuarioMB implements Serializable {
     public void setNovoUsuario(Usuario novoUsuario) {
         this.novoUsuario = novoUsuario;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    
+    
     
     
     
@@ -228,6 +249,13 @@ public class UsuarioMB implements Serializable {
         FacesContext contexto = FacesContext.getCurrentInstance();
         contexto.getExternalContext().invalidateSession();
         return ("login?faces-redirect=true");
+    }
+
+    public Usuario pesquisaUsuario(String usuario) {
+        for(Usuario e: usuariosDB)
+            if(e.getUsuario().equals(usuario))
+                return(e);
+        return null;
     }
     
     
