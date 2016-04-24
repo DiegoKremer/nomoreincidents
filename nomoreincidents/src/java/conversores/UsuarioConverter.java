@@ -9,12 +9,14 @@ import ManagedBeans.UsuarioMB;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
+import javax.faces.convert.FacesConverter;
 import models.Usuario;
 
 /**
  *
- * @author 631320019
+ * @author Diego Kremer
  */
+@FacesConverter(value = "usuarioConverter")
 public class UsuarioConverter implements Converter {
 
     @Override

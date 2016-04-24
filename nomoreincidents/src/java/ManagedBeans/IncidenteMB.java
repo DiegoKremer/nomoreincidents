@@ -14,6 +14,7 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import models.Incidente;
+import models.Usuario;
 
 /**
  *
@@ -24,6 +25,7 @@ import models.Incidente;
 public class IncidenteMB implements Serializable {
     
     private Incidente novoIncidente; 
+    private Usuario usuarioSelecionado;
     
     private List<Incidente> incidenteDB;
     
@@ -104,6 +106,16 @@ public class IncidenteMB implements Serializable {
     public void setNovoIncidente(Incidente novoIncidente) {
         this.novoIncidente = novoIncidente;
     }
+
+    public Usuario getUsuarioSelecionado() {
+        return usuarioSelecionado;
+    }
+
+    public void setUsuarioSelecionado(Usuario usuarioSelecionado) {
+        this.usuarioSelecionado = usuarioSelecionado;
+    }
+    
+    
 
     public List<Incidente> getIncidenteDB() {
         return incidenteDB;

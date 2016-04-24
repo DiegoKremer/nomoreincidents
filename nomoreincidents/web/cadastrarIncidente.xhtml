@@ -21,7 +21,8 @@
                 <h:inputText value="#{incidenteMB.novoIncidente.localidade}" id="idLocalidade"/>
                 <br/>
                 <h:outputLabel value="Usuario: " for="idUsuario" />
-                <h:selectOneMenu value="#{incidenteMB.novoIncidente.usuario}" id="idUsuario">
+                <h:selectOneMenu value="#{incidenteMB.usuarioSelecionado}" id="idUsuario" 
+                                 converter="usuarioConverter" required="true">
                     <f:selectItems value="#{usuarioMB.usuariosDB}" />
                 </h:selectOneMenu>
                 <br/>
