@@ -53,5 +53,18 @@ public class GrupotecnicoMB implements Serializable {
     public void setGrupoTecnicoDB(List<GrupoTecnico> grupoTecnicoDB) {
         this.grupoTecnicoDB = grupoTecnicoDB;
     }
+    //--------------------------------------------------------------------------
+    public String removerGrupo(GrupoTecnico novoGrupo){
+        grupoTecnicoDB.remove(novoGrupo);
+        return "grupoTecnico?faces-redirect=true";
+    }
+    public String editarGrupo(GrupoTecnico u){
+        novoGrupo = u;
+        return("/editarGrupoTecnico?faces-redirect=true");
+    }
+    public String atualizarGrupoTecnico()
+    {
+        return("/grupoTecnico?faces-redirect=true");
+    }
 
 }
