@@ -5,10 +5,8 @@
  */
 package models;
 
-import ManagedBeans.UsuarioMB;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+
 
 /**
  *
@@ -20,7 +18,7 @@ public class Incidente {
     private String numeroRef;
     private String localidade;
     private Usuario usuario;
-    private Date data;
+    private String data;
     private String descricao;
     
    
@@ -30,7 +28,7 @@ public class Incidente {
     }
     
 
-    public Incidente(int numero, String numeroRef, String localidade, Usuario usuario, Date data, String descricao) {
+    public Incidente(int numero, String numeroRef, String localidade, Usuario usuario, String data, String descricao) {
         this.usuario = new Usuario ();
         this.numero = numero;
         this.numeroRef = numeroRef;
@@ -74,11 +72,11 @@ public class Incidente {
     }
 
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 

@@ -12,8 +12,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
-
 import models.Incidente;
 import models.Usuario;
 
@@ -51,16 +52,14 @@ public class IncidenteMB implements Serializable {
         incidenteDB.add(novoIncidente);
         this.novoIncidente = new Incidente();
         
-  
         
-        
-//        FacesContext contexto = FacesContext.getCurrentInstance();
-//            FacesMessage mensagem = new FacesMessage(
-//                    FacesMessage.SEVERITY_INFO, 
-//                    "Incidente registrado",
-//                    "O incidente foi registrado com sucesso.");
-//            contexto.addMessage(null, mensagem);
-//            System.out.println("Incidente registrado");
+        FacesContext contexto = FacesContext.getCurrentInstance();
+            FacesMessage mensagem = new FacesMessage(
+                    FacesMessage.SEVERITY_INFO, 
+                    "Incidente registrado",
+                    "O incidente foi registrado com sucesso.");
+            contexto.addMessage(null, mensagem);
+            System.out.println("Incidente registrado");
         
             return "incidentes?faces-redirect=true"; 
     }
@@ -128,7 +127,7 @@ public class IncidenteMB implements Serializable {
     //--------------------------------------------------------------------------
     public String removerIncidente(Incidente novoIncidente){
         incidenteDB.remove(novoIncidente);
-        return "grupoTecnico?faces-redirect=true";
+        return "incidentes?faces-redirect=true";
     }
     public String editarIncidente(Incidente u){
         novoIncidente = u;

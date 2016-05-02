@@ -254,9 +254,9 @@ public class UsuarioMB implements Serializable {
         return ("login?faces-redirect=true");
     }
 
-    public Usuario pesquisaUsuario(String usuario) {
+    public Usuario pesquisaUsuario(String nome) {
         for(Usuario e: usuariosDB)
-            if(e.getUsuario().equals(usuario))
+            if(e.getNome().equals(nome))
                 return(e);
         return null;
     }

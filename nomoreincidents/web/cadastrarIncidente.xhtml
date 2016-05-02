@@ -20,21 +20,21 @@
                 <h:outputLabel value="Localidade: " for="idLocalidade" />
                 <h:inputText value="#{incidenteMB.novoIncidente.localidade}" id="idLocalidade"/>
                 <br/>
-                <h:outputLabel value="Usuario: " for="idUsuario" />
-                <h:selectOneMenu value="#{incidenteMB.usuarioSelecionado}" id="idUsuario" 
+                <h:outputLabel value="Usuario: "  />
+                <h:selectOneMenu value="#{incidenteMB.usuarioSelecionado}" 
                                  converter="usuarioConverter" required="true">
                     <f:selectItems value="#{usuarioMB.usuariosDB}" />
                 </h:selectOneMenu>
                 <br/>
                 <h:outputLabel value="Data: " for="idData" />
-                <h:inputText value="#{incidenteMB.dataAtual()}" id="idData"/>
+                <h:outputLabel value="#{incidenteMB.dataAtual()}" id="idData"/>
                 <br/>
                 <h:outputLabel value="Descrição: " for="idDescricao" />
                 <h:inputTextarea value="#{incidenteMB.novoIncidente.descricao}" id="idDescricao"/>
             </h:panelGrid>
             <br/>
             <br/>
-            <p:commandButton value="Cadastrar" action="#{incidenteMB.registraIncidente()}"/>
+            <h:commandButton value="Cadastrar" action="#{incidenteMB.registraIncidente()}"/>
             <br/>
             <br/> 
             <p:button value="Menu" outcome="menu"/>
