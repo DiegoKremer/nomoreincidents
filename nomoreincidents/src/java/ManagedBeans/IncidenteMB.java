@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
+
 import models.Incidente;
 import models.Usuario;
 
@@ -124,7 +125,19 @@ public class IncidenteMB implements Serializable {
     public void setIncidenteDB(List<Incidente> incidenteDB) {
         this.incidenteDB = incidenteDB;
     }
-
+    //--------------------------------------------------------------------------
+    public String removerIncidente(Incidente novoIncidente){
+        incidenteDB.remove(novoIncidente);
+        return "grupoTecnico?faces-redirect=true";
+    }
+    public String editarIncidente(Incidente u){
+        novoIncidente = u;
+        return("/editarIncidente?faces-redirect=true");
+    }
+    public String atualizarIncidente()
+    {
+        return("/incidentes?faces-redirect=true");
+    }
    
 
     

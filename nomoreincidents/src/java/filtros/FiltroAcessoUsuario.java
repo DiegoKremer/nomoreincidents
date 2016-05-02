@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Diego Kremer
  */
 
-@WebFilter(filterName = "FiltroAcessoUsuario", urlPatterns = {"/index.xhtml"})
+@WebFilter(filterName = "FiltroAcessoUsuario", urlPatterns = {"/faces/index.xhtml"})
 public class FiltroAcessoUsuario implements Filter {
     
     @Inject 

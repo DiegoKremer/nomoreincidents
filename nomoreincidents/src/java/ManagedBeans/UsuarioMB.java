@@ -13,6 +13,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import models.GrupoTecnico;
 import models.Usuario;
 
 /**
@@ -58,8 +59,10 @@ public class UsuarioMB implements Serializable {
                     && usuariosDB.get(i).getSenha().equals(this.password)) {
                 
                 if (isAdmin(usuariosDB.get(i))) {
+                    logado = true;
                     return ("index_admin?faces-redirect=true");
                 } else if (isUsuario(usuariosDB.get(i))) {
+                    logado = true;
                     return ("index?faces-redirect=true");
                 } else {
                     username = "";
@@ -258,6 +261,18 @@ public class UsuarioMB implements Serializable {
         return null;
     }
     
-    
+    //--------------------------------------------------------------------------
+    public String removerUsuario(Usuario novoUsuario){
+        usuariosDB.remove(novoUsuario);
+        return "usuario?faces-redirect=true";
+    }
+    public String editarUsuario(Usuario u){
+        novoUsuario = u;
+        return("/editarUsuario?faces-redirect=true");
+    }
+    public String atualizarUsuario()
+    {
+        return("/usuarios?faces-redirect=true");
+    }
 
 }

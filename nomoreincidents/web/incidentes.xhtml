@@ -35,6 +35,16 @@
             <p:column headerText="Numero de referência">
                 <h:outputText value="#{novoIncidente.numeroRef}" />
             </p:column>
+            <p:column >
+                    <f:facet name="header">
+                        <h:outputText value="Operação" />
+                    </f:facet>
+                        <p:commandButton value="Editar " action="#{incidenteMB.editarIncidente(novoIncidente)}"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <p:commandButton value="Remover" action="#{incidenteMB.removerIncidente(novoIncidente)}"/>
+                        
+            </p:column> 
+            
         </p:dataTable>
         <br></br>
          <h:form>
