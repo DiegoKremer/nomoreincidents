@@ -28,18 +28,28 @@
 
             <p:column headerText="Data">
                 <h:outputText value="#{novoIncidente.data}" >
-                    <f:convertDateTime pattern ="dd/MM/yyyy" />
+<!--                    <f:convertDateTime pattern ="dd/MM/yyyy" />-->
                 </h:outputText>
             </p:column>
             
             <p:column headerText="Numero de referência">
                 <h:outputText value="#{novoIncidente.numeroRef}" />
             </p:column>
+            <p:column >
+                    <f:facet name="header">
+                        <h:outputText value="Operação" />
+                    </f:facet>
+                        <p:commandButton value="Editar " action="#{incidenteMB.editarIncidente(novoIncidente)}"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <p:commandButton value="Remover" action="#{incidenteMB.removerIncidente(novoIncidente)}"/>
+                        
+            </p:column> 
+            
         </p:dataTable>
         <br></br>
          <h:form>
             <p:commandButton value="Menu" action="menu"/>
-            <p:commandButton value="Adicionar Incidente" action="cadastrarIncidente"/>
+            <h:commandButton value="Adicionar Incidente" action="cadastrarIncidente"/>
         </h:form>
     </h:body>
 
