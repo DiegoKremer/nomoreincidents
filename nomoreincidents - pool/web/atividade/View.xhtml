@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAtividadeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAtividadeLabel_idAtividade}"/>
+                    <h:outputText value="#{atividadeController.selected.idAtividade}" title="#{bundle.ViewAtividadeTitle_idAtividade}"/>
+                    <h:outputText value="#{bundle.ViewAtividadeLabel_numeroInterno}"/>
+                    <h:outputText value="#{atividadeController.selected.numeroInterno}" title="#{bundle.ViewAtividadeTitle_numeroInterno}"/>
+                    <h:outputText value="#{bundle.ViewAtividadeLabel_data}"/>
+                    <h:outputText value="#{atividadeController.selected.data}" title="#{bundle.ViewAtividadeTitle_data}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAtividadeLabel_hora}"/>
+                    <h:outputText value="#{atividadeController.selected.hora}" title="#{bundle.ViewAtividadeTitle_hora}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAtividadeLabel_idGrupotecnico}"/>
+                    <h:outputText value="#{atividadeController.selected.idGrupotecnico}" title="#{bundle.ViewAtividadeTitle_idGrupotecnico}"/>
+                    <h:outputText value="#{bundle.ViewAtividadeLabel_idIncidente}"/>
+                    <h:outputText value="#{atividadeController.selected.idIncidente}" title="#{bundle.ViewAtividadeTitle_idIncidente}"/>
+                    <h:outputText value="#{bundle.ViewAtividadeLabel_idUsuario}"/>
+                    <h:outputText value="#{atividadeController.selected.idUsuario}" title="#{bundle.ViewAtividadeTitle_idUsuario}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{atividadeController.destroyAndView}" value="#{bundle.ViewAtividadeDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAtividadeEditLink}"/>
+                <br />
+                <h:commandLink action="#{atividadeController.prepareCreate}" value="#{bundle.ViewAtividadeCreateLink}" />
+                <br />
+                <h:commandLink action="#{atividadeController.prepareList}" value="#{bundle.ViewAtividadeShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAtividadeIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

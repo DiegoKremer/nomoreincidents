@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListIncidenteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListIncidenteEmpty}" rendered="#{incidenteController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{incidenteController.items.rowCount > 0}">
+                    <h:outputText value="#{incidenteController.pagination.pageFirstItem + 1}..#{incidenteController.pagination.pageLastItem + 1}/#{incidenteController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{incidenteController.previous}" value="#{bundle.Previous} #{incidenteController.pagination.pageSize}" rendered="#{incidenteController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{incidenteController.next}" value="#{bundle.Next} #{incidenteController.pagination.pageSize}" rendered="#{incidenteController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{incidenteController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIncidenteTitle_idIncidente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idIncidente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIncidenteTitle_numero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIncidenteTitle_referencia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.referencia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIncidenteTitle_localidade}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.localidade}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIncidenteTitle_data}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.data}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIncidenteTitle_descricao}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descricao}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIncidenteTitle_idUsuario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idUsuario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{incidenteController.prepareView}" value="#{bundle.ListIncidenteViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{incidenteController.prepareEdit}" value="#{bundle.ListIncidenteEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{incidenteController.destroy}" value="#{bundle.ListIncidenteDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{incidenteController.prepareCreate}" value="#{bundle.ListIncidenteCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListIncidenteIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

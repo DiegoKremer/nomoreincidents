@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateIncidenteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateIncidenteLabel_idIncidente}" for="idIncidente" />
+                    <h:inputText id="idIncidente" value="#{incidenteController.selected.idIncidente}" title="#{bundle.CreateIncidenteTitle_idIncidente}" required="true" requiredMessage="#{bundle.CreateIncidenteRequiredMessage_idIncidente}"/>
+                    <h:outputLabel value="#{bundle.CreateIncidenteLabel_numero}" for="numero" />
+                    <h:inputText id="numero" value="#{incidenteController.selected.numero}" title="#{bundle.CreateIncidenteTitle_numero}" />
+                    <h:outputLabel value="#{bundle.CreateIncidenteLabel_referencia}" for="referencia" />
+                    <h:inputText id="referencia" value="#{incidenteController.selected.referencia}" title="#{bundle.CreateIncidenteTitle_referencia}" />
+                    <h:outputLabel value="#{bundle.CreateIncidenteLabel_localidade}" for="localidade" />
+                    <h:inputText id="localidade" value="#{incidenteController.selected.localidade}" title="#{bundle.CreateIncidenteTitle_localidade}" />
+                    <h:outputLabel value="#{bundle.CreateIncidenteLabel_data}" for="data" />
+                    <h:inputText id="data" value="#{incidenteController.selected.data}" title="#{bundle.CreateIncidenteTitle_data}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateIncidenteLabel_descricao}" for="descricao" />
+                    <h:inputText id="descricao" value="#{incidenteController.selected.descricao}" title="#{bundle.CreateIncidenteTitle_descricao}" />
+                    <h:outputLabel value="#{bundle.CreateIncidenteLabel_idUsuario}" for="idUsuario" />
+                    <h:selectOneMenu id="idUsuario" value="#{incidenteController.selected.idUsuario}" title="#{bundle.CreateIncidenteTitle_idUsuario}" required="true" requiredMessage="#{bundle.CreateIncidenteRequiredMessage_idUsuario}">
+                        <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{incidenteController.create}" value="#{bundle.CreateIncidenteSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{incidenteController.prepareList}" value="#{bundle.CreateIncidenteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateIncidenteIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

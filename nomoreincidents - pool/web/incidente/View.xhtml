@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewIncidenteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewIncidenteLabel_idIncidente}"/>
+                    <h:outputText value="#{incidenteController.selected.idIncidente}" title="#{bundle.ViewIncidenteTitle_idIncidente}"/>
+                    <h:outputText value="#{bundle.ViewIncidenteLabel_numero}"/>
+                    <h:outputText value="#{incidenteController.selected.numero}" title="#{bundle.ViewIncidenteTitle_numero}"/>
+                    <h:outputText value="#{bundle.ViewIncidenteLabel_referencia}"/>
+                    <h:outputText value="#{incidenteController.selected.referencia}" title="#{bundle.ViewIncidenteTitle_referencia}"/>
+                    <h:outputText value="#{bundle.ViewIncidenteLabel_localidade}"/>
+                    <h:outputText value="#{incidenteController.selected.localidade}" title="#{bundle.ViewIncidenteTitle_localidade}"/>
+                    <h:outputText value="#{bundle.ViewIncidenteLabel_data}"/>
+                    <h:outputText value="#{incidenteController.selected.data}" title="#{bundle.ViewIncidenteTitle_data}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewIncidenteLabel_descricao}"/>
+                    <h:outputText value="#{incidenteController.selected.descricao}" title="#{bundle.ViewIncidenteTitle_descricao}"/>
+                    <h:outputText value="#{bundle.ViewIncidenteLabel_idUsuario}"/>
+                    <h:outputText value="#{incidenteController.selected.idUsuario}" title="#{bundle.ViewIncidenteTitle_idUsuario}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{incidenteController.destroyAndView}" value="#{bundle.ViewIncidenteDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewIncidenteEditLink}"/>
+                <br />
+                <h:commandLink action="#{incidenteController.prepareCreate}" value="#{bundle.ViewIncidenteCreateLink}" />
+                <br />
+                <h:commandLink action="#{incidenteController.prepareList}" value="#{bundle.ViewIncidenteShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewIncidenteIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
