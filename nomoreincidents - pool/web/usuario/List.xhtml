@@ -3,60 +3,65 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.ListUsuarioTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:panelGroup id="messagePanel" layout="block">
-                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                </h:panelGroup>
-                <h:outputText escape="false" value="#{bundle.ListUsuarioEmpty}" rendered="#{usuarioController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{usuarioController.items.rowCount > 0}">
-                    <h:outputText value="#{usuarioController.pagination.pageFirstItem + 1}..#{usuarioController.pagination.pageLastItem + 1}/#{usuarioController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{usuarioController.previous}" value="#{bundle.Previous} #{usuarioController.pagination.pageSize}" rendered="#{usuarioController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{usuarioController.next}" value="#{bundle.Next} #{usuarioController.pagination.pageSize}" rendered="#{usuarioController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{usuarioController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_idUsuario}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idUsuario}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_tipoUsuario}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.tipoUsuario}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_nome}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nome}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_cargo}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.cargo}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_telefone}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.telefone}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_email}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.email}"/>
-                        </h:column>
-                        <h:column>
+            <h:form styleClass="">
+                
+                
+                    <p:dataTable  var="item" value="#{usuarioController.items}" rows="10"
+                         paginator="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15">
+                        
+                        <p:column headerText="Id">
+                            
+                                <h:outputText value="#{item.idUsuario}"/>
+                            
+                           
+                        </p:column>
+                        
+                        
+                        <p:column headerText="Tipo">
+                            
+                                <h:outputText value="#{item.tipoUsuario}"/>
+                            
+                        </p:column>
+                        
+                        <p:column headerText="Nome">
+                            
+                                <h:outputText value="#{item.nome}"/>
+                            
+                        </p:column>
+                        
+                        
+                        <p:column headerText="Cargo">
+                            
+                                <h:outputText value="#{item.cargo}"/>
+                            
+                        </p:column>
+                        
+                        
+                        <p:column headerText="Telefone">
+                           
+                                <h:outputText value="#{item.telefone}"/>
+                            
+                        </p:column>
+                        
+                        
+                        <p:column headerText="Email">>
+                           
+                                <h:outputText value="#{item.email}"/>
+                            
+                        </p:column>
+                        
+                        
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -65,9 +70,11 @@
                             <h:commandLink action="#{usuarioController.prepareEdit}" value="#{bundle.ListUsuarioEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{usuarioController.destroy}" value="#{bundle.ListUsuarioDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
-                </h:panelGroup>
+                        </p:column>
+                        
+                        
+                    </p:dataTable>
+                
                 <br />
                 <h:commandLink action="#{usuarioController.prepareCreate}" value="#{bundle.ListUsuarioCreateLink}"/>
                 <br />
