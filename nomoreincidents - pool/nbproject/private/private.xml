@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Marcelo%20-%20Arquivos/Dropbox/Net%20Beans%20Codigos%20-%20Clone/NetBeansProjects/nomoreincidents%20-%20pool/web/resources/css/jsfcrud.css</file>
-            <file>file:/E:/Marcelo%20-%20Arquivos/Dropbox/Net%20Beans%20Codigos%20-%20Clone/NetBeansProjects/nomoreincidents%20-%20pool/web/template.xhtml</file>
-            <file>file:/E:/Marcelo%20-%20Arquivos/Dropbox/Net%20Beans%20Codigos%20-%20Clone/NetBeansProjects/nomoreincidents%20-%20pool/web/index.xhtml</file>
+            <file>file:/E:/Marcelo%20-%20Arquivos/Dropbox/Net%20Beans%20Codigos%20-%20Clone/NetBeansProjects/nomoreincidents%20-%20pool/web/atividade/List.xhtml</file>
+            <file>file:/E:/Marcelo%20-%20Arquivos/Dropbox/Net%20Beans%20Codigos%20-%20Clone/NetBeansProjects/nomoreincidents%20-%20pool/web/grupoTecnico/List.xhtml</file>
+            <file>file:/E:/Marcelo%20-%20Arquivos/Dropbox/Net%20Beans%20Codigos%20-%20Clone/NetBeansProjects/nomoreincidents%20-%20pool/web/incidente/List.xhtml</file>
+            <file>file:/E:/Marcelo%20-%20Arquivos/Dropbox/Net%20Beans%20Codigos%20-%20Clone/NetBeansProjects/nomoreincidents%20-%20pool/web/usuario/List.xhtml</file>
         </group>
     </open-files>
 </project-private>
