@@ -22,6 +22,13 @@ public class Incidente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    private int numero;
+    private String numeroRef;
+    private String localidade;
+    private Usuario usuario;
+    private String data;
+    private String descricao;
 
     public Long getId() {
         return id;
@@ -30,6 +37,56 @@ public class Incidente implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public String getNumeroRef() {
+        return numeroRef;
+    }
+
+    public void setNumeroRef(String numeroRef) {
+        this.numeroRef = numeroRef;
+    }
+
+    public String getLocalidade() {
+        return localidade;
+    }
+
+    public void setLocalidade(String localidade) {
+        this.localidade = localidade;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+    
+    
 
     @Override
     public int hashCode() {
