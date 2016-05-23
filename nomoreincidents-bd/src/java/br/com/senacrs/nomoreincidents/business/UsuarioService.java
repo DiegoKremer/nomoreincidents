@@ -6,10 +6,26 @@
 
 package br.com.senacrs.nomoreincidents.business;
 
+import br.com.senacrs.nomoreincidents.model.Usuario;
+import java.util.List;
+
 /**
  *
  * @author Diego Kremer
  */
 public class UsuarioService {
+
+    public List<Usuario> listar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void salvar(Usuario usuarioSelecionado) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void atualizar(Usuario usuarioSelecionado) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     
 }

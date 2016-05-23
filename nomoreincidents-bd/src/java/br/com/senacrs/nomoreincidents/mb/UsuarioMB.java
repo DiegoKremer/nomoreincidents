@@ -6,7 +6,10 @@
 
 package br.com.senacrs.nomoreincidents.mb;
 
+import br.com.senacrs.nomoreincidents.business.BusinessException;
+import br.com.senacrs.nomoreincidents.business.UsuarioService;
 import br.com.senacrs.nomoreincidents.model.Usuario;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -39,6 +42,35 @@ public class UsuarioMB {
         usuarioSelecionado = new Usuario ();
     }
     
+    // Get e Set
+    
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Usuario getUsuarioSelecionado() {
+        return usuarioSelecionado;
+    }
+
+    public void setUsuarioSelecionado(Usuario usuarioSelecionado) {
+        this.usuarioSelecionado = usuarioSelecionado;
+    }
+    
+    
+    // Métodos
+    
     public String verificaDadosUsuario () {
         
      return ("login?faces-redirect=true");
@@ -55,6 +87,47 @@ public class UsuarioMB {
     
     public boolean isLogado () {
         return logado;
+    }
+    
+    public List<Usuario> getListaUsuarios() {
+        return new UsuarioService().listar();
+    }
+    
+    public String novoUsuario() {
+        usuarioSelecionado = new Usuario();
+        return ("formCadastro?faces-redirect=true");
+    }
+    
+    public String adicionarUsuario() {
+        try {
+            new UsuarioService().salvar(usuarioSelecionado);
+        } catch (BusinessException ex) {
+            // Erro
+        }
+        return (this.novoUsuario());
+        
+    }
+    
+    public String editarUsuario(Usuario u) {
+        usuarioSelecionado = u;
+        return ("formEdicao?faces-redirect=true");
+    }
+    
+    public String atualizarUsuario() {
+        try {
+            new UsuarioService().atualizar(usuarioSelecionado);
+        } catch (BusinessException ex) {
+            //Mensagem de erro!
+        }
+        return ("tabelaUsuarios?faces-redirect=true");
+    }
+    
+    public void removerUsuario(Usuario u) {
+        try {
+            new UsuarioService().excluir(usuarioSelecionado);
+        } catch (BusinessException ex) {
+            //Mensagem de erro!
+        }
     }
     
 }
