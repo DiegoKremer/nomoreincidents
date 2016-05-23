@@ -13,7 +13,7 @@ import br.com.senacrs.nomoreincidents.model.Usuario;
  * @author Diego Kremer
  */
 public interface UsuarioDao extends GenericDao<Usuario> {
-    
-    
+
+    public Usuario buscarPorUsuario(String usuario);
     
 }
