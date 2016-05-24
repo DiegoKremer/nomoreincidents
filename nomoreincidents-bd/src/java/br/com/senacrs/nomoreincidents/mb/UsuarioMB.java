@@ -14,7 +14,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 /**
- *
  * @author Diego Kremer
  */
 @ManagedBean
@@ -73,7 +72,9 @@ public class UsuarioMB {
     
     public String verificaDadosUsuario () {
         
-     return ("login?faces-redirect=true");
+        
+        
+        return ("login?faces-redirect=true");
      
     }
     

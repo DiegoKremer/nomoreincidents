@@ -18,7 +18,7 @@ public class JpaUtil {
     
     
     private static final EntityManagerFactory emf = 
-            Persistence.createEntityManagerFactory("NoMoreIncidentsPU");
+            Persistence.createEntityManagerFactory("nomoreincidents-bdPU");
     
     public static EntityManager getEntityManager() {
         return emf.createEntityManager();

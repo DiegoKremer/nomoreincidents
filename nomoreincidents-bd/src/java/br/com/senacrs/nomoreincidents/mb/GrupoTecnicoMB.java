@@ -6,6 +6,11 @@
 
 package br.com.senacrs.nomoreincidents.mb;
 
+import br.com.senacrs.nomoreincidents.business.BusinessException;
+import br.com.senacrs.nomoreincidents.business.GrupoTecnicoService;
+import br.com.senacrs.nomoreincidents.model.GrupoTecnico;
+import br.com.senacrs.nomoreincidents.model.Usuario;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -16,11 +21,54 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class GrupoTecnicoMB {
+    
+    private GrupoTecnico grupoSelecionado;
 
     /**
      * Creates a new instance of GrupoTecnicoMB
      */
     public GrupoTecnicoMB() {
+    }
+    
+    public List<GrupoTecnico> getListaGruposTecnicos() {
+        return new GrupoTecnicoService().listar();
+    }
+    
+    public String novoGrupoTecnico() {
+        grupoSelecionado = new GrupoTecnico();
+        return ("formCadastro?faces-redirect=true");
+    }
+    
+    public String adicionarGrupoTecnico() {
+        try {
+            new GrupoTecnicoService().salvar(grupoSelecionado);
+        } catch (BusinessException ex) {
+            // Erro
+        }
+        return (this.novoGrupoTecnico());
+        
+    }
+    
+    public String editarGrupoTecnico(GrupoTecnico gt) {
+        grupoSelecionado = gt;
+        return ("formEdicao?faces-redirect=true");
+    }
+    
+    public String atualizarUsuario() {
+        try {
+            new GrupoTecnicoService().atualizar(grupoSelecionado);
+        } catch (BusinessException ex) {
+            //Mensagem de erro!
+        }
+        return ("tabelaUsuarios?faces-redirect=true");
+    }
+    
+    public void removerGrupoTecnico(GrupoTecnico gt) {
+        try {
+            new GrupoTecnicoService().excluir(grupoSelecionado);
+        } catch (BusinessException ex) {
+            //Mensagem de erro!
+        }
     }
     
 }
