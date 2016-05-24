@@ -14,7 +14,7 @@
     <h:body>
         <h1>Usuários</h1>
         
-        <p:dataTable var="usuario" value="#{usuarioMB.usuariosDB}">
+        <p:dataTable var="usuario" value="#{usuarioMB.listaUsuarios}">
             <p:column headerText="Nome">
                 <h:outputText value="#{usuario.nome}" />
             </p:column>
@@ -47,7 +47,7 @@
         <br></br>
          <h:form>
             <p:commandButton value="Menu" action="menu"/>
-            <p:commandButton value="Adicionar Usuário" action="cadastrarUsuario"/>
+            <p:commandButton value="Adicionar usuário" action="cadastrarUsuario"/>
         </h:form>
     </h:body>
 

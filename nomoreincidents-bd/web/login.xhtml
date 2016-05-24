@@ -14,7 +14,7 @@
                 <p:inputText value="#{usuarioMB.username}" id="idUsuario"/>
                 <br></br>
                 <p:outputLabel value="Senha: " for="idSenha" />
-                <h:inputSecret value="#{usuarioMB.password}" id="idSenha"/>
+                <p:password value="#{usuarioMB.password}" id="idSenha"/>
                 </h:panelGrid>
                 <p:commandButton value="Logar" action="#{usuarioMB.verificaDadosUsuario()}"/>
                 <p:commandButton value="Cadastrar" action="formCadastro"/>
