@@ -96,7 +96,7 @@ public class UsuarioMB {
     
     public String novoUsuario() {
         usuarioSelecionado = new Usuario();
-        return ("formCadastro?faces-redirect=true");
+        return ("usuarioCadastro?faces-redirect=true");
     }
     
     public String adicionarUsuario() {
@@ -111,7 +111,7 @@ public class UsuarioMB {
     
     public String editarUsuario(Usuario u) {
         usuarioSelecionado = u;
-        return ("formEdicao?faces-redirect=true");
+        return ("usuarioEdicao?faces-redirect=true");
     }
     
     public String atualizarUsuario() {
@@ -120,7 +120,7 @@ public class UsuarioMB {
         } catch (BusinessException ex) {
             //Mensagem de erro!
         }
-        return ("tabelaUsuarios?faces-redirect=true");
+        return ("usuarioTabela?faces-redirect=true");
     }
     
     public void removerUsuario(Usuario u) {

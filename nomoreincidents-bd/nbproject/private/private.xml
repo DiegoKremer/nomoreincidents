@@ -3,17 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Diego%20Kremer/Documents/NetBeansProjects/nomoreincidents/nomoreincidents/nomoreincidents-bd/src/java/br/com/senacrs/nomoreincidents/model/Incidente.java</file>
-            <file>file:/C:/Users/Diego%20Kremer/Documents/NetBeansProjects/nomoreincidents/nomoreincidents/nomoreincidents-bd/web/login.xhtml</file>
-            <file>file:/C:/Users/Diego%20Kremer/Documents/NetBeansProjects/nomoreincidents/nomoreincidents/nomoreincidents-bd/src/java/br/com/senacrs/nomoreincidents/dao/UsuarioDao.java</file>
-            <file>file:/C:/Users/Diego%20Kremer/Documents/NetBeansProjects/nomoreincidents/nomoreincidents/nomoreincidents-bd/src/java/br/com/senacrs/nomoreincidents/model/GrupoTecnico.java</file>
-            <file>file:/C:/Users/Diego%20Kremer/Documents/NetBeansProjects/nomoreincidents/nomoreincidents/nomoreincidents-bd/src/java/br/com/senacrs/nomoreincidents/model/Atividade.java</file>
-            <file>file:/C:/Users/Diego%20Kremer/Documents/NetBeansProjects/nomoreincidents/nomoreincidents/nomoreincidents-bd/src/java/br/com/senacrs/nomoreincidents/util/JpaUtil.java</file>
-            <file>file:/C:/Users/Diego%20Kremer/Documents/NetBeansProjects/nomoreincidents/nomoreincidents/nomoreincidents-bd/src/java/br/com/senacrs/nomoreincidents/filter/FiltroAcessoAdmin.java</file>
-            <file>file:/C:/Users/Diego%20Kremer/Documents/NetBeansProjects/nomoreincidents/nomoreincidents/nomoreincidents-bd/src/java/br/com/senacrs/nomoreincidents/dao/GrupoTecnicoDao.java</file>
-            <file>file:/C:/Users/Diego%20Kremer/Documents/NetBeansProjects/nomoreincidents/nomoreincidents/nomoreincidents-bd/src/java/br/com/senacrs/nomoreincidents/dao/IncidenteDao.java</file>
-            <file>file:/C:/Users/Diego%20Kremer/Documents/NetBeansProjects/nomoreincidents/nomoreincidents/nomoreincidents-bd/src/java/br/com/senacrs/nomoreincidents/dao/GenericDao.java</file>
-            <file>file:/C:/Users/Diego%20Kremer/Documents/NetBeansProjects/nomoreincidents/nomoreincidents/nomoreincidents-bd/src/java/br/com/senacrs/nomoreincidents/dao/AtividadeDao.java</file>
+            <file>file:/C:/Users/Marcelo/Documents/NetBeansProjects/nomoreincidents-master/nomoreincidents-bd/web/usuario/usuarioCadastro.xhtml</file>
+            <file>file:/C:/Users/Marcelo/Documents/NetBeansProjects/nomoreincidents-master/nomoreincidents-bd/web/login.xhtml</file>
+            <file>file:/C:/Users/Marcelo/Documents/NetBeansProjects/nomoreincidents-master/nomoreincidents-bd/web/usuario/usuarioEdicao.xhtml</file>
+            <file>file:/C:/Users/Marcelo/Documents/NetBeansProjects/nomoreincidents-master/nomoreincidents-bd/web/usuario/usuarioTabela.xhtml</file>
         </group>
     </open-files>
 </project-private>

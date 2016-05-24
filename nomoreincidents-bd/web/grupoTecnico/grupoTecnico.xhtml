@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       
+        <title>Grupo Técnico</title>
+    </h:head>
+
+    <h:body>
+        <h1>Grupo técnico</h1>
+        <p:dataTable var="novoGrupo" value="#{grupotecnicoMB.grupoTecnicoDB}"  >
+         
+                <h:outputText value="Tabela de Grupo Técnico" />
+           
+                      
+            <p:column headerText="Nome">
+               
+                 
+                
+                <h:outputText id="idNome" value="#{novoGrupo.nome}"  />
+            </p:column>
+            <p:column headerText="Email">
+               
+                   
+           
+                <h:outputText id="idEmail" value="#{novoGrupo.email}" />
+            </p:column>
+            <p:column headerText="Membros">
+                
+                    
+                
+                <h:outputText id="idMembros" value="#{novoGrupo.membros}" />
+            </p:column>
+            <p:column headerText="Telefone">
+              
+                  
+              
+                <h:outputText  id="idTelefone" value="#{novoGrupo.telefone}"/>
+            </p:column>
+            <p:column >
+                    <f:facet name="header">
+                        <h:outputText value="Operação" />
+                    </f:facet>
+                        <p:commandButton value="Editar " action="#{grupotecnicoMB.editarGrupo(novoGrupo)}"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <p:commandButton value="Remover" action="#{grupotecnicoMB.removerGrupo(novoGrupo)}"/>
+                        
+            </p:column> 
+        </p:dataTable>
+        <br></br>
+        <h:form>
+            <p:commandButton value="Menu" action="menu"/>
+            <p:button value="Adicionar Grupo Técnico" outcome="cadastrarGrupoTecnico"/>
+        </h:form>
+    </h:body>
+
+</html>

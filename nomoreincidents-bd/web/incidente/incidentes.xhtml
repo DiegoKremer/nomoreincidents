@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       
+        <title>Incidentes</title>
+    </h:head>
+
+    <h:body>
+        <h1>Incidentes</h1>
+        <p:dataTable var="novoIncidente" value="#{incidenteMB.incidenteDB}">
+            <p:column headerText="Descrição">
+                <h:outputText value="#{novoIncidente.descricao}" />
+            </p:column>
+
+            <p:column headerText="Localidade">
+                <h:outputText value="#{novoIncidente.localidade}" />
+            </p:column>
+
+            <p:column headerText="Usuário">
+                <h:outputText value="#{novoIncidente.usuario}" />
+            </p:column>
+
+            <p:column headerText="Data">
+                <h:outputText value="#{novoIncidente.data}" >
+<!--                    <f:convertDateTime pattern ="dd/MM/yyyy" />-->
+                </h:outputText>
+            </p:column>
+            
+            <p:column headerText="Numero de referência">
+                <h:outputText value="#{novoIncidente.numeroRef}" />
+            </p:column>
+            <p:column >
+                    <f:facet name="header">
+                        <h:outputText value="Operação" />
+                    </f:facet>
+                        <p:commandButton value="Editar " action="#{incidenteMB.editarIncidente(novoIncidente)}"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <p:commandButton value="Remover" action="#{incidenteMB.removerIncidente(novoIncidente)}"/>
+                        
+            </p:column> 
+            
+        </p:dataTable>
+        <br></br>
+         <h:form>
+            <p:commandButton value="Menu" action="menu"/>
+            <h:commandButton value="Adicionar Incidente" action="cadastrarIncidente"/>
+        </h:form>
+    </h:body>
+
+</html>
