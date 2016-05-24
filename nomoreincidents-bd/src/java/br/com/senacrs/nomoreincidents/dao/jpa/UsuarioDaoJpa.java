@@ -8,6 +8,9 @@ package br.com.senacrs.nomoreincidents.dao.jpa;
 
 import br.com.senacrs.nomoreincidents.dao.UsuarioDao;
 import br.com.senacrs.nomoreincidents.model.Usuario;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -20,8 +23,16 @@ public class UsuarioDaoJpa extends GenericDaoJpa<Usuario> implements UsuarioDao 
     }
 
     @Override
-    public Usuario buscarPorUsuario(String usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Usuario buscarPorUsuario(String usuarioBuscado) {
+        EntityManager em = getEntityManager();
+        TypedQuery <Usuario> query = 
+                em.createQuery("SELECT usuario FROM Usuario usuario "
+                        + "WHERE usuarioBuscado.usuario = :usuario", Usuario.class);
+        query.setParameter("ususario", usuarioBuscado);
+        List<Usuario> lista = query.getResultList();
+        em.close();
+        if(lista.isEmpty()) return null;
+        return lista.get(0);
     }
     
 }
