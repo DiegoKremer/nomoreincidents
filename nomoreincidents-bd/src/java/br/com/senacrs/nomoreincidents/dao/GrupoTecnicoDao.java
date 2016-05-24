@@ -14,4 +14,5 @@ import br.com.senacrs.nomoreincidents.model.GrupoTecnico;
  */
 public interface GrupoTecnicoDao extends GenericDao<GrupoTecnico> {
     
+    
 }

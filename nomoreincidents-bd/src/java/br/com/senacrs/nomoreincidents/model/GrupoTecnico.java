@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -27,6 +28,7 @@ public class GrupoTecnico implements Serializable {
     private String nome;
     private String email;
     private String telefone;
+    @ManyToMany
     private ArrayList<Usuario> membros;
 
     public Long getId() {

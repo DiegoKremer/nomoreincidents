@@ -9,7 +9,6 @@ package br.com.senacrs.nomoreincidents.mb;
 import br.com.senacrs.nomoreincidents.business.BusinessException;
 import br.com.senacrs.nomoreincidents.business.GrupoTecnicoService;
 import br.com.senacrs.nomoreincidents.model.GrupoTecnico;
-import br.com.senacrs.nomoreincidents.model.Usuario;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
