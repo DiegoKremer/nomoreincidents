@@ -35,7 +35,7 @@ public class GrupoTecnicoMB {
     
     public String novoGrupoTecnico() {
         grupoSelecionado = new GrupoTecnico();
-        return ("formCadastro?faces-redirect=true");
+        return ("cadastrarGrupoTecnico?faces-redirect=true");
     }
     
     public String adicionarGrupoTecnico() {
@@ -50,16 +50,16 @@ public class GrupoTecnicoMB {
     
     public String editarGrupoTecnico(GrupoTecnico gt) {
         grupoSelecionado = gt;
-        return ("formEdicao?faces-redirect=true");
+        return ("editarGrupoTecnico?faces-redirect=true");
     }
     
-    public String atualizarUsuario() {
+    public String atualizarGrupoTecnico() {
         try {
             new GrupoTecnicoService().atualizar(grupoSelecionado);
         } catch (BusinessException ex) {
             //Mensagem de erro!
         }
-        return ("tabelaUsuarios?faces-redirect=true");
+        return ("editarGrupoTecnico?faces-redirect=true");
     }
     
     public void removerGrupoTecnico(GrupoTecnico gt) {
