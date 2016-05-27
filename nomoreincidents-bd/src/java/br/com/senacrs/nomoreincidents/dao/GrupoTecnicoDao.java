@@ -7,6 +7,7 @@
 package br.com.senacrs.nomoreincidents.dao;
 
 import br.com.senacrs.nomoreincidents.model.GrupoTecnico;
+import java.util.List;
 
 /**
  *
@@ -14,5 +15,6 @@ import br.com.senacrs.nomoreincidents.model.GrupoTecnico;
  */
 public interface GrupoTecnicoDao extends GenericDao<GrupoTecnico> {
     
+    public List<GrupoTecnico> procurarPorNome(String nome);
     
 }

@@ -7,6 +7,8 @@
 package br.com.senacrs.nomoreincidents.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +28,7 @@ public class Incidente implements Serializable {
     private int numero;
     private String numeroRef;
     private String localidade;
-    private Usuario usuario;
+    private ArrayList<Usuario> usuario;//Adicionado ArrayList - verificar IncidenteService!!!
     private String data;
     private String descricao;
 
@@ -62,13 +64,15 @@ public class Incidente implements Serializable {
         this.localidade = localidade;
     }
 
-    public Usuario getUsuario() {
+    public ArrayList<Usuario> getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(ArrayList<Usuario> usuario) {
         this.usuario = usuario;
     }
+
+  
 
     public String getData() {
         return data;

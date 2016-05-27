@@ -7,11 +7,12 @@
 package br.com.senacrs.nomoreincidents.dao;
 
 import br.com.senacrs.nomoreincidents.model.Incidente;
+import java.util.List;
 
 /**
  *
  * @author Diego Kremer
  */
 public interface IncidenteDao extends GenericDao<Incidente> {
-    
+    public List<Incidente> procurarPorNumeroRef(String numeroRef);
 }

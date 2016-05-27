@@ -7,6 +7,7 @@
 package br.com.senacrs.nomoreincidents.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,9 +26,9 @@ public class Atividade implements Serializable {
     private Long id;
     
     private int numeroInterno;
-    private Usuario analista;
-    private Incidente incidente;
-    private GrupoTecnico grupoTecnico;
+    private ArrayList<Usuario> analista;//Adicionado ArrayList para funcionar em AtividadeService
+    private ArrayList<Incidente> incidente;//Adicionado ArrayList para funcionar em AtividadeService
+    private ArrayList<GrupoTecnico> grupoTecnico;//Adicionado ArrayList para funcionar em AtividadeService
     private String descricao;
     private Date data;
     private Date hora;
@@ -48,29 +49,35 @@ public class Atividade implements Serializable {
         this.numeroInterno = numeroInterno;
     }
 
-    public Usuario getAnalista() {
+    public ArrayList<Usuario> getAnalista() {
         return analista;
     }
 
-    public void setAnalista(Usuario analista) {
+    public void setAnalista(ArrayList<Usuario> analista) {
         this.analista = analista;
     }
 
-    public Incidente getIncidente() {
+    public ArrayList<Incidente> getIncidente() {
         return incidente;
     }
 
-    public void setIncidente(Incidente incidente) {
+    public void setIncidente(ArrayList<Incidente> incidente) {
         this.incidente = incidente;
     }
 
-    public GrupoTecnico getGrupoTecnico() {
+    public ArrayList<GrupoTecnico> getGrupoTecnico() {
         return grupoTecnico;
     }
 
-    public void setGrupoTecnico(GrupoTecnico grupoTecnico) {
+    public void setGrupoTecnico(ArrayList<GrupoTecnico> grupoTecnico) {
         this.grupoTecnico = grupoTecnico;
     }
+
+
+
+   
+
+  
 
     public String getDescricao() {
         return descricao;

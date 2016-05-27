@@ -7,13 +7,14 @@
 package br.com.senacrs.nomoreincidents.dao;
 
 import br.com.senacrs.nomoreincidents.model.Atividade;
+import java.util.List;
 
 /**
  *
  * @author Diego Kremer
  */
 public interface AtividadeDao extends GenericDao<Atividade> {
-    
+    public List<Atividade> procurarPorNumeroInterno(int numeroInterno);
     
     
 }

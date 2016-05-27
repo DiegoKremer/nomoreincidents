@@ -7,6 +7,7 @@
 package br.com.senacrs.nomoreincidents.business;
 
 import br.com.senacrs.nomoreincidents.dao.UsuarioDao;
+import br.com.senacrs.nomoreincidents.dao.jpa.IncidenteDaoJpa;
 import br.com.senacrs.nomoreincidents.dao.jpa.UsuarioDaoJpa;
 import br.com.senacrs.nomoreincidents.model.Usuario;
 import java.util.List;
@@ -20,7 +21,7 @@ public class UsuarioService {
     private final UsuarioDao usuarioDao;
     
     public UsuarioService () {
-        usuarioDao = new UsuarioDaoJpa();
+        usuarioDao = new UsuarioDaoJpa();//verificar erro -> IncidenteDaoJpa()
     }
 
     public List<Usuario> listar() {
