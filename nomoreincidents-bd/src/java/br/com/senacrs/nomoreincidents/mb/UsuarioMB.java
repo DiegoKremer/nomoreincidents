@@ -34,6 +34,9 @@ public class UsuarioMB {
     // Variável para verificação se usuário está logado.
     private boolean logado;
     
+    
+    private UsuarioService usuarioService;
+    
     /**
      * Creates a new instance of UsuarioMB
      */
@@ -70,20 +73,33 @@ public class UsuarioMB {
     
     // Métodos
     
-    public String verificaDadosUsuario () {
+    public String verificaDadosUsuario () throws BusinessException {
         
-        
-        
-        return ("login?faces-redirect=true");
+        if (isAdmin(usuarioService.buscaPorUsuario(username))) {
+            return ("index_admin?faces-redirect=true");
+        } else if (isUsuario(usuarioService.buscaPorUsuario(username))) {
+            return ("index?faces-redirect=true");
+        } else {
+            
+            return ("login?faces-redirect=true");
+        }
      
     }
     
-    public boolean isAdmin () {
+    public boolean isAdmin (Usuario usuario) {
+        if (usuario.getTipoUsuario().equals("Admin")) {
+            return true;
+        } else {
         return false;
+        }
     }
     
-    public boolean isUsuario () {
+    public boolean isUsuario (Usuario usuario) {
+        if (usuario.getTipoUsuario().equals("User")) {
+            return true;
+        } else {
         return false;
+        }
     }
     
     public boolean isLogado () {
