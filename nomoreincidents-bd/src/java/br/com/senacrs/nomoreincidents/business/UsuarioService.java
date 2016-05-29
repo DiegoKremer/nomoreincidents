@@ -21,7 +21,7 @@ public class UsuarioService {
     private final UsuarioDao usuarioDao;
     
     public UsuarioService () {
-        usuarioDao = new UsuarioDaoJpa();//verificar erro -> IncidenteDaoJpa()
+        usuarioDao = new UsuarioDaoJpa();
     }
 
     public List<Usuario> listar() {
