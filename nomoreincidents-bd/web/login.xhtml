@@ -16,7 +16,7 @@
                 <p:outputLabel value="Senha: " for="idSenha" />
                 <p:password value="#{usuarioMB.password}" id="idSenha"/>
                 </h:panelGrid>
-                <p:commandButton value="Logar" action="#{usuarioMB.verificaDadosUsuario()}"/>
+                <h:commandButton value="Logar" action="#{usuarioMB.verificaDadosUsuario()}"/>
                 <p:button value="Cadastrar" outcome="/usuario/cadastrarUsuario"/>
         </h:form>        
         <h:messages/>

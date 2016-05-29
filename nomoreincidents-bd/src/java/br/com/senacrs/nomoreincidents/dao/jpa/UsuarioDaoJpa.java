@@ -18,7 +18,8 @@ import javax.persistence.TypedQuery;
  */
 public class UsuarioDaoJpa extends GenericDaoJpa<Usuario> implements UsuarioDao {
 
-    public UsuarioDaoJpa() {
+    public UsuarioDaoJpa() 
+    {
         super(Usuario.class);
     }
 
@@ -26,8 +27,8 @@ public class UsuarioDaoJpa extends GenericDaoJpa<Usuario> implements UsuarioDao 
     public Usuario buscarPorUsuario(String usuarioBuscado) {
         EntityManager em = getEntityManager();
         TypedQuery <Usuario> query = 
-                em.createQuery("SELECT usuario FROM Usuario "
-                        + "WHERE usuarioBuscado.usuario = :usuario", Usuario.class);
+                em.createQuery("SELECT u FROM Usuario u"
+                        + "WHERE u.usuarioBuscado = :usuarioBuscado", Usuario.class);
         query.setParameter("usuario", usuarioBuscado);
         List<Usuario> lista = query.getResultList();
         em.close();

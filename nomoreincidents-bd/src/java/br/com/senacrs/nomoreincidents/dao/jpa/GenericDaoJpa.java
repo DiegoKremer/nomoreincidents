@@ -6,7 +6,6 @@
 package br.com.senacrs.nomoreincidents.dao.jpa;
 
 import br.com.senacrs.nomoreincidents.dao.GenericDao;
-import br.com.senacrs.nomoreincidents.util.JpaUtil;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -19,7 +18,9 @@ import javax.persistence.criteria.CriteriaQuery;
 public abstract class GenericDaoJpa<T> implements GenericDao<T> {
 
     private Class<T> entityClass;
-
+    
+    EntityManager entityManager;
+    
     private GenericDaoJpa() {
     }
 
@@ -29,7 +30,7 @@ public abstract class GenericDaoJpa<T> implements GenericDao<T> {
     }
     
     protected EntityManager getEntityManager(){
-        return JpaUtil.getEntityManager();
+        return entityManager;
     }
             
 

@@ -1,31 +1,21 @@
-package br.com.senacrs.nomoreincidents.util;
+package br.com.senacrs.nomoreincidents.dao.jpa;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-/**
- *
- * @author Diego Kremer
- */
 public class JpaUtil {
     
-    
-    private static final EntityManagerFactory emf = 
+    public static final EntityManagerFactory emf = 
             Persistence.createEntityManagerFactory("nomoreincidents-bdPU");
     
-    /**
-     *
-     * @return
-     */
     public static EntityManager getEntityManager() {
-        return emf.createEntityManager();
+        EntityManager eManager = emf.createEntityManager();
+        return eManager;
     }
     
-//    public static void close(){
-//        emf.close();
-//    }
-    
-
+    public static void close(){
+        emf.close();
+    }
     
 }

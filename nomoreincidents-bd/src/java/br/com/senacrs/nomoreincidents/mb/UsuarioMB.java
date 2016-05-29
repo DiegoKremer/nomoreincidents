@@ -42,6 +42,7 @@ public class UsuarioMB {
      */
     public UsuarioMB() {
         usuarioSelecionado = new Usuario ();
+        usuarioService = new UsuarioService ();
     }
     
     // Get e Set
@@ -80,7 +81,6 @@ public class UsuarioMB {
         } else if (isUsuario(usuarioService.buscaPorUsuario(username))) {
             return ("index?faces-redirect=true");
         } else {
-            
             return ("login?faces-redirect=true");
         }
      
