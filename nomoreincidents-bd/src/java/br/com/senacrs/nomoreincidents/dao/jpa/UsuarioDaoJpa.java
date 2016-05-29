@@ -27,9 +27,9 @@ public class UsuarioDaoJpa extends GenericDaoJpa<Usuario> implements UsuarioDao 
     public Usuario buscarPorUsuario(String usuarioBuscado) {
         EntityManager em = getEntityManager();
         TypedQuery <Usuario> query = 
-                em.createQuery("SELECT u FROM Usuario "
-                        + "WHERE u = :usuarioBuscado", Usuario.class);
-        query.setParameter("usuario", usuarioBuscado);
+                em.createQuery("SELECT u FROM Usuario u "
+                        + "WHERE u.usuario = :usuarioBuscado", Usuario.class);
+        query.setParameter("usuarioBuscado", usuarioBuscado);
         List<Usuario> lista = query.getResultList();
         em.close();
         if(lista.isEmpty()) return null;
