@@ -6,15 +6,20 @@ import javax.persistence.Persistence;
 
 public class JpaUtil {
     
-    public static final EntityManagerFactory emf = 
-            Persistence.createEntityManagerFactory("nomoreincidents-bdPU");
+    public JpaUtil () {
     
-    public static EntityManager getEntityManager() {
-        EntityManager eManager = emf.createEntityManager();
-        return eManager;
     }
     
-    public static void close(){
+    private EntityManager entityManager;
+    
+    private  EntityManagerFactory emf = 
+            Persistence.createEntityManagerFactory("nomoreincidents-bdPU");
+    
+    public EntityManager getEntityManager() {
+        return emf.createEntityManager();
+    }
+    
+    public void close(){
         emf.close();
     }
     

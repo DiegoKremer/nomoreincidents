@@ -46,25 +46,25 @@ public class AtividadeService {
     }
 
     private void validaCamposObrigatorios(Atividade atividade) throws BusinessException {
-        if (atividade.getAnalista() == null || atividade.getAnalista().isEmpty()) {//Adicionado ArrayList no atributo usuario na classe model Atividade
-            throw new BusinessException("Campo analista não informado");
-        }
-        
-        if (atividade.getIncidente() == null || atividade.getIncidente().isEmpty()) {//Adicionado ArrayList no atributo incidente na classe model Atividade
-            throw new BusinessException("Campo incidente não informado");
-        }
-        
-        if (atividade.getGrupoTecnico() == null || atividade.getGrupoTecnico().isEmpty()) {//Adicionado ArrayList no atributo grupoTecnico na classe model Atividade
-            throw new BusinessException("Campo grupo técnico não informado");
-        }
-        if (atividade.getDescricao() == null || atividade.getDescricao().isEmpty()) {
-            throw new BusinessException("Descrição não informada");
-        }
-        if (atividade.getData() == null ) {
-            throw new BusinessException("Data não informada");
-        }
-        if (atividade.getHora() == null ) {
-            throw new BusinessException("Hora não informada");
-        }
+//        if (atividade.getAnalista() == null || atividade.getAnalista().isEmpty()) {//Adicionado ArrayList no atributo usuario na classe model Atividade
+//            throw new BusinessException("Campo analista não informado");
+//        }
+//        
+//        if (atividade.getIncidente() == null || atividade.getIncidente().isEmpty()) {//Adicionado ArrayList no atributo incidente na classe model Atividade
+//            throw new BusinessException("Campo incidente não informado");
+//        }
+//        
+//        if (atividade.getGrupoTecnico() == null || atividade.getGrupoTecnico().isEmpty()) {//Adicionado ArrayList no atributo grupoTecnico na classe model Atividade
+//            throw new BusinessException("Campo grupo técnico não informado");
+//        }
+//        if (atividade.getDescricao() == null || atividade.getDescricao().isEmpty()) {
+//            throw new BusinessException("Descrição não informada");
+//        }
+//        if (atividade.getData() == null ) {
+//            throw new BusinessException("Data não informada");
+//        }
+//        if (atividade.getHora() == null ) {
+//            throw new BusinessException("Hora não informada");
+//        }
     }
 }

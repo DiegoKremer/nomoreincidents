@@ -21,8 +21,9 @@ import javax.persistence.ManyToMany;
 @Entity
 public class Usuario implements Serializable {
 
-    @ManyToMany(mappedBy = "membros")
-    private List<GrupoTecnico> grupoTecnicos;
+//    @ManyToMany(mappedBy = "membros")
+//    private List<GrupoTecnico> grupoTecnicos;
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

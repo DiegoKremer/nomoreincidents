@@ -32,20 +32,20 @@
                 <br/>
                 <h:outputLabel value="Tipo de Usuário: " for="idTipoUsuario" />
                 <h:selectOneRadio value="#{usuarioMB.usuarioSelecionado.tipoUsuario}" id="idTipoUsuario">
-                    <f:selectItem itemValue="C" itemLabel="Colaborador" />
-                    <f:selectItem itemValue="U" itemLabel="Analista" />
-                    <f:selectItem itemValue="A" itemLabel="Administrador" />
+                    <f:selectItem itemValue="Others" itemLabel="Colaborador" />
+                    <f:selectItem itemValue="User" itemLabel="Analista" />
+                    <f:selectItem itemValue="Admin" itemLabel="Administrador" />
                 </h:selectOneRadio>
             </h:panelGrid>
                 <br/>
-                <p:commandButton value="Cadastrar" action="#{usuarioMB.adicionarUsuario()}">
+                <h:commandButton value="Cadastrar" action="#{usuarioMB.adicionarUsuario()}">
                     <f:ajax render="@form" resetValues="true"/>
-                </p:commandButton>
+                </h:commandButton>
                 <br/>
                 <br/>
-                <p:commandButton value="Voltar" action="login"/>
+                <h:commandButton value="Voltar" action="login"/>
                
-                <p:commandButton value="Usuários" action="usuarios"/>
+                <h:commandButton value="Usuários" action="usuarios"/>
                 
                 <h:messages/>
         </h:form>

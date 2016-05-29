@@ -58,9 +58,9 @@ public class IncidenteService {
         if (incidente.getDescricao() == null || incidente.getDescricao().isEmpty()) {
             throw new BusinessException("Descrição do grupo não informada");
         }
-        if (incidente.getUsuario() == null || incidente.getUsuario().isEmpty()) {//adicionado Arraylist no atributo usuario na classe model Incidente
-            throw new BusinessException("Usuario do grupo não informado");
-        }
+//        if (incidente.getUsuario() == null || incidente.getUsuario().isEmpty()) {//adicionado Arraylist no atributo usuario na classe model Incidente
+//            throw new BusinessException("Usuario do grupo não informado");
+//        }
         if (incidente.getData() == null ) {
             throw new BusinessException("Data não informada");
         }

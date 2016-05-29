@@ -55,9 +55,9 @@ public class GrupoTecnicoService {
             throw new BusinessException("Campo Email não informado");
         }
         
-        if (grupo.getMembros() == null || grupo.getMembros().isEmpty()) {
-            throw new BusinessException("Membros do grupo não informado");
-        }
+//        if (grupo.getMembros() == null || grupo.getMembros().isEmpty()) {
+//            throw new BusinessException("Membros do grupo não informado");
+//        }
     
     }
     

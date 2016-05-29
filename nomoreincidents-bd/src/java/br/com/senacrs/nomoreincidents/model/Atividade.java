@@ -26,12 +26,11 @@ public class Atividade implements Serializable {
     private Long id;
     
     private int numeroInterno;
-    private ArrayList<Usuario> analista;//Adicionado ArrayList para funcionar em AtividadeService
-    private ArrayList<Incidente> incidente;//Adicionado ArrayList para funcionar em AtividadeService
-    private ArrayList<GrupoTecnico> grupoTecnico;//Adicionado ArrayList para funcionar em AtividadeService
+//    private ArrayList<Usuario> analista;//Adicionado ArrayList para funcionar em AtividadeService
+//    private ArrayList<Incidente> incidente;//Adicionado ArrayList para funcionar em AtividadeService
+//    private ArrayList<GrupoTecnico> grupoTecnico;//Adicionado ArrayList para funcionar em AtividadeService
     private String descricao;
-    private Date data;
-    private Date hora;
+
 
     public Long getId() {
         return id;
@@ -49,29 +48,29 @@ public class Atividade implements Serializable {
         this.numeroInterno = numeroInterno;
     }
 
-    public ArrayList<Usuario> getAnalista() {
-        return analista;
-    }
-
-    public void setAnalista(ArrayList<Usuario> analista) {
-        this.analista = analista;
-    }
-
-    public ArrayList<Incidente> getIncidente() {
-        return incidente;
-    }
-
-    public void setIncidente(ArrayList<Incidente> incidente) {
-        this.incidente = incidente;
-    }
-
-    public ArrayList<GrupoTecnico> getGrupoTecnico() {
-        return grupoTecnico;
-    }
-
-    public void setGrupoTecnico(ArrayList<GrupoTecnico> grupoTecnico) {
-        this.grupoTecnico = grupoTecnico;
-    }
+//    public ArrayList<Usuario> getAnalista() {
+//        return analista;
+//    }
+//
+//    public void setAnalista(ArrayList<Usuario> analista) {
+//        this.analista = analista;
+//    }
+//
+//    public ArrayList<Incidente> getIncidente() {
+//        return incidente;
+//    }
+//
+//    public void setIncidente(ArrayList<Incidente> incidente) {
+//        this.incidente = incidente;
+//    }
+//
+//    public ArrayList<GrupoTecnico> getGrupoTecnico() {
+//        return grupoTecnico;
+//    }
+//
+//    public void setGrupoTecnico(ArrayList<GrupoTecnico> grupoTecnico) {
+//        this.grupoTecnico = grupoTecnico;
+//    }
 
 
 
@@ -85,22 +84,6 @@ public class Atividade implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-
-    public Date getHora() {
-        return hora;
-    }
-
-    public void setHora(Date hora) {
-        this.hora = hora;
     }
     
     

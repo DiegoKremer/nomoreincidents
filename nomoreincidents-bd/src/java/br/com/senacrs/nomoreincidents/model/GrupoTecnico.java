@@ -28,8 +28,8 @@ public class GrupoTecnico implements Serializable {
     private String nome;
     private String email;
     private String telefone;
-    @ManyToMany
-    private ArrayList<Usuario> membros;
+    
+//    private ArrayList<Usuario> membros;
 
     public Long getId() {
         return id;
@@ -63,13 +63,13 @@ public class GrupoTecnico implements Serializable {
         this.telefone = telefone;
     }
 
-    public ArrayList<Usuario> getMembros() {
-        return membros;
-    }
-
-    public void setMembros(ArrayList<Usuario> membros) {
-        this.membros = membros;
-    }
+//    public ArrayList<Usuario> getMembros() {
+//        return membros;
+//    }
+//
+//    public void setMembros(ArrayList<Usuario> membros) {
+//        this.membros = membros;
+//    }
     
     
 

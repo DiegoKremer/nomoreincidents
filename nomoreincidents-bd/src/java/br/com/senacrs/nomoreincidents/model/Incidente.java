@@ -28,7 +28,7 @@ public class Incidente implements Serializable {
     private int numero;
     private String numeroRef;
     private String localidade;
-    private ArrayList<Usuario> usuario;//Adicionado ArrayList - verificar IncidenteService!!!
+//    private ArrayList<Usuario> usuario;//Adicionado ArrayList - verificar IncidenteService!!!
     private String data;
     private String descricao;
 
@@ -64,13 +64,13 @@ public class Incidente implements Serializable {
         this.localidade = localidade;
     }
 
-    public ArrayList<Usuario> getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(ArrayList<Usuario> usuario) {
-        this.usuario = usuario;
-    }
+//    public ArrayList<Usuario> getUsuario() {
+//        return usuario;
+//    }
+//
+//    public void setUsuario(ArrayList<Usuario> usuario) {
+//        this.usuario = usuario;
+//    }
 
   
 

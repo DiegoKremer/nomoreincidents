@@ -19,18 +19,20 @@ public abstract class GenericDaoJpa<T> implements GenericDao<T> {
 
     private Class<T> entityClass;
     
-    EntityManager entityManager;
+    JpaUtil jpaUtil;
     
     private GenericDaoJpa() {
+        
     }
 
     protected GenericDaoJpa(Class<T> entityClass) {
         this();
         this.entityClass = entityClass;
+        jpaUtil = new JpaUtil ();
     }
     
     protected EntityManager getEntityManager(){
-        return entityManager;
+        return jpaUtil.getEntityManager();
     }
             
 
