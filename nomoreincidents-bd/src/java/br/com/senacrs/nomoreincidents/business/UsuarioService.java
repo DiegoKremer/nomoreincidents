@@ -7,7 +7,6 @@
 package br.com.senacrs.nomoreincidents.business;
 
 import br.com.senacrs.nomoreincidents.dao.UsuarioDao;
-import br.com.senacrs.nomoreincidents.dao.jpa.IncidenteDaoJpa;
 import br.com.senacrs.nomoreincidents.dao.jpa.UsuarioDaoJpa;
 import br.com.senacrs.nomoreincidents.model.Usuario;
 import java.util.List;
@@ -29,7 +28,7 @@ public class UsuarioService {
     }
 
     public void salvar(Usuario usuario) throws BusinessException {
-        this.validaCamposObrigatorios(usuario);
+        //this.validaCamposObrigatorios(usuario);
         usuarioDao.salvar(usuario);
     }
 

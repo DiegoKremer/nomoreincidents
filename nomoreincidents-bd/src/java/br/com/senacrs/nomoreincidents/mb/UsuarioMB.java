@@ -118,8 +118,12 @@ public class UsuarioMB {
     public String adicionarUsuario() {
         try {
             new UsuarioService().salvar(usuarioSelecionado);
+            System.out.println(usuarioSelecionado.getNome());
+            System.out.println(usuarioSelecionado.getCargo());
+            System.out.println(usuarioSelecionado.getUsuario());
+            System.out.println(usuarioSelecionado.getNome());
         } catch (BusinessException ex) {
-            // Erro
+            System.out.println("ERRO AO ADICIONAR USUARIO");
         }
         return (this.novoUsuario());
         

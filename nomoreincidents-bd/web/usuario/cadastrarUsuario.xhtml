@@ -12,7 +12,7 @@
         <h:form> 
             <h:panelGrid columns="3">
                 <h:outputLabel value="Usuário: " for="idUsuario" />
-                <h:inputText value="#{usuarioMB.username}" id="idUsuario"/>
+                <h:inputText value="#{usuarioMB.usuarioSelecionado.usuario}" id="idUsuario"/>
 <!--                verficar id ou username-->
                 <br/>
                 <h:outputLabel value="Senha: " for="idSenha" />
@@ -32,15 +32,16 @@
                 <br/>
                 <h:outputLabel value="Tipo de Usuário: " for="idTipoUsuario" />
                 <h:selectOneRadio value="#{usuarioMB.usuarioSelecionado.tipoUsuario}" id="idTipoUsuario">
-                    <f:selectItem itemValue="Others" itemLabel="Colaborador" />
-                    <f:selectItem itemValue="User" itemLabel="Analista" />
-                    <f:selectItem itemValue="Admin" itemLabel="Administrador" />
+                    <f:selectItem itemValue="O" itemLabel="Colaborador" />
+                    <f:selectItem itemValue="U" itemLabel="Analista" />
+                    <f:selectItem itemValue="A" itemLabel="Administrador" />
                 </h:selectOneRadio>
             </h:panelGrid>
                 <br/>
                 <h:commandButton value="Cadastrar" action="#{usuarioMB.adicionarUsuario()}">
-                    <f:ajax render="@form" resetValues="true"/>
+<!--                    <f:ajax render="@form" resetValues="true"/>-->
                 </h:commandButton>
+                
                 <br/>
                 <br/>
                 <h:commandButton value="Voltar" action="/faces/login"/>

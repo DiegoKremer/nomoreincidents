@@ -41,13 +41,12 @@
                         <p:commandButton value="Editar " action="#{usuarioMB.editarUsuario(usuario)}"/>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <p:commandButton value="Remover" action="#{usuarioMB.removerUsuario(usuario)}"/>
-                        
             </p:column> 
         </p:dataTable>
         <br></br>
          <h:form>
-            <p:commandButton value="Menu" action="menu"/>
-            <p:commandButton value="Adicionar usuário" action="cadastrarUsuario"/>
+            <h:commandButton value="Menu" action="/menu"/>
+            <h:commandButton value="Adicionar usuário" action="/usuario/cadastrarUsuario"/>
         </h:form>
     </h:body>
 
