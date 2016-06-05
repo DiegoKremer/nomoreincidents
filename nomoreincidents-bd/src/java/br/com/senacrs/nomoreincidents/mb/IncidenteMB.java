@@ -6,6 +6,10 @@
 
 package br.com.senacrs.nomoreincidents.mb;
 
+import br.com.senacrs.nomoreincidents.business.BusinessException;
+import br.com.senacrs.nomoreincidents.business.IncidenteService;
+import br.com.senacrs.nomoreincidents.model.Incidente;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -17,10 +21,63 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class IncidenteMB {
 
+   private Incidente incidenteSelecionado;
+
     /**
-     * Creates a new instance of IncidenteMB
+     * Creates a new instance of GrupoTecnicoMB
      */
     public IncidenteMB() {
+    }
+
+    public Incidente getGrupoSelecionado() {
+        return incidenteSelecionado;
+    }
+
+    public void setIncidenteSelecionado(Incidente incidenteSelecionado) {
+        this.incidenteSelecionado = incidenteSelecionado;
+    }
+    
+    
+    
+    public List<Incidente> getListaIncidentes() {
+        return new IncidenteService().listar();
+    }
+    
+    public String novoIncidente() {
+        incidenteSelecionado = new Incidente();
+        return ("cadastrarIncidente?faces-redirect=true");
+    }
+    
+    public String adicionarIncidente() {
+        try {
+            new IncidenteService().salvar(incidenteSelecionado);
+        } catch (BusinessException ex) {
+            // Erro
+        }
+        return (this.novoIncidente());
+        
+    }
+    
+    public String editarGrupoTecnico(Incidente in) {
+        incidenteSelecionado = in;
+        return ("editarIncidente?faces-redirect=true");
+    }
+    
+    public String atualizarIncidente() {
+        try {
+            new IncidenteService().atualizar(incidenteSelecionado);
+        } catch (BusinessException ex) {
+            //Mensagem de erro!
+        }
+        return ("editarIncidente?faces-redirect=true");
+    }
+    
+    public void removerGrupoTecnico(Incidente in) {
+        try {
+            new IncidenteService().excluir(incidenteSelecionado);
+        } catch (BusinessException ex) {
+            //Mensagem de erro!
+        }
     }
     
 }
