@@ -28,7 +28,7 @@ public class UsuarioService {
     }
 
     public void salvar(Usuario usuario) throws BusinessException {
-        //this.validaCamposObrigatorios(usuario);
+        this.validaCamposObrigatorios(usuario);
         usuarioDao.salvar(usuario);
     }
 

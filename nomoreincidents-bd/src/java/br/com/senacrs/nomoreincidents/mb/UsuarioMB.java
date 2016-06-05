@@ -77,27 +77,34 @@ public class UsuarioMB {
     public String verificaDadosUsuario () throws BusinessException {
         
         if (isAdmin(usuarioService.buscaPorUsuario(username))) {
+            System.out.println("Redirect para index admin");
             return ("index_admin?faces-redirect=true");
         } else if (isUsuario(usuarioService.buscaPorUsuario(username))) {
+            System.out.println("Redirect para index principal");
             return ("index?faces-redirect=true");
         } else {
+            System.out.println("Redirect para login");
             return ("login?faces-redirect=true");
         }
      
     }
     
     public boolean isAdmin (Usuario usuario) {
-        if (usuario.getTipoUsuario().equals("Admin")) {
+        if (usuario.getTipoUsuario().equals("A")) {
+            System.out.println("Usuário é Admin");
             return true;
         } else {
+        System.out.println("Usuário não é admin");
         return false;
         }
     }
     
     public boolean isUsuario (Usuario usuario) {
-        if (usuario.getTipoUsuario().equals("User")) {
+        if (usuario.getTipoUsuario().equals("U")) {
+            System.out.println("Usuário é Usuário");
             return true;
         } else {
+        System.out.println("Usuário não é Usuário");
         return false;
         }
     }
