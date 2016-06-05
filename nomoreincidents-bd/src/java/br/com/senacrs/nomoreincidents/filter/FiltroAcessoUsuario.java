@@ -6,6 +6,7 @@
 
 package br.com.senacrs.nomoreincidents.filter;
 
+
 import br.com.senacrs.nomoreincidents.mb.UsuarioMB;
 import java.io.IOException;
 import javax.inject.Inject;
@@ -24,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Diego Kremer
  */
 
-@WebFilter(filterName = "FiltroAcessoUsuario", urlPatterns = {"/faces/index.xhtml"})
+@WebFilter(filterName = "FiltroAcessoUsuario", urlPatterns = {""})
 public class FiltroAcessoUsuario implements Filter {
     
     @Inject 
@@ -43,7 +44,7 @@ public class FiltroAcessoUsuario implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         //Se o usuário estiver logado 
-        if (usuarioMB != null && usuarioMB.isLogado()) {            
+        if (usuarioMB != null && usuarioMB.isLogado()) {     
             //deixa acessar o recurso
             chain.doFilter(request, response);
         } else {

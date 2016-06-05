@@ -12,10 +12,14 @@ import br.com.senacrs.nomoreincidents.model.Usuario;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
 /**
  * @author Diego Kremer
  */
+@Named(value = "usuarioMB")
+
 @ManagedBean
 @SessionScoped
 public class UsuarioMB {
@@ -43,6 +47,7 @@ public class UsuarioMB {
     public UsuarioMB() {
         usuarioSelecionado = new Usuario ();
         usuarioService = new UsuarioService ();
+        logado = false;
     }
     
     // Get e Set
@@ -78,10 +83,12 @@ public class UsuarioMB {
         
         if (isAdmin(usuarioService.buscaPorUsuario(username))) {
             System.out.println("Redirect para index admin");
+            logado = true;
             return ("index_admin?faces-redirect=true");
         } else if (isUsuario(usuarioService.buscaPorUsuario(username))) {
             System.out.println("Redirect para index principal");
-            return ("index?faces-redirect=true");
+            logado = true;
+            return ("index_principal?faces-redirect=true");
         } else {
             System.out.println("Redirect para login");
             return ("login?faces-redirect=true");
@@ -111,6 +118,12 @@ public class UsuarioMB {
     
     public boolean isLogado () {
         return logado;
+    }
+    
+    public String realizaLogout() {
+        FacesContext contexto = FacesContext.getCurrentInstance();
+        contexto.getExternalContext().invalidateSession();
+        return ("login?faces-redirect=true");
     }
     
     public List<Usuario> getListaUsuarios() {
