@@ -12,11 +12,15 @@ import br.com.senacrs.nomoreincidents.model.GrupoTecnico;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.inject.Named;
 
 /**
  *
  * @author Diego Kremer
  */
+
+@Named(value = "grupotecnicoMB")
+
 @ManagedBean
 @SessionScoped
 public class GrupoTecnicoMB {
@@ -28,6 +32,16 @@ public class GrupoTecnicoMB {
      */
     public GrupoTecnicoMB() {
     }
+
+    public GrupoTecnico getGrupoSelecionado() {
+        return grupoSelecionado;
+    }
+
+    public void setGrupoSelecionado(GrupoTecnico grupoSelecionado) {
+        this.grupoSelecionado = grupoSelecionado;
+    }
+    
+    
     
     public List<GrupoTecnico> getListaGruposTecnicos() {
         return new GrupoTecnicoService().listar();

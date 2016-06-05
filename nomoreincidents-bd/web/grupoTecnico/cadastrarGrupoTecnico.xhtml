@@ -12,17 +12,17 @@
         <h:form> 
             <h:panelGrid columns="3">
                 <h:outputLabel value="Nome: " for="idNome"  />
-                <h:inputText  value="#{grupotecnicoMB.novoGrupo.nome}" id="idNome"/>
+                <h:inputText  value="#{grupotecnicoMB.grupoSelecionado.nome}" id="idNome"/>
                 <br/>
                 <h:outputLabel value="Email: " for="idEmail" />
-                <h:inputText value="#{grupotecnicoMB.novoGrupo.email}" id="idEmail"/>
+                <h:inputText value="#{grupotecnicoMB.grupoSelecionado.email}" id="idEmail"/>
                 <br/>
                 <h:outputLabel value="Telefone: " for="idTelefone" />
-                <h:inputText value="#{grupotecnicoMB.novoGrupo.telefone}" id="idTelefone"/>
+                <h:inputText value="#{grupotecnicoMB.grupoSelecionado.telefone}" id="idTelefone"/>
                 <br/>
                 <h:outputLabel value="Membros: " for="idMembros" />
-                <h:selectManyListbox value="#{grupotecnicoMB.novoGrupo.membros}" id="idMembros">
-                    <f:selectItems value="#{usuarioMB.usuariosDB}" />
+                <h:selectManyListbox value="#{grupotecnicoMB.grupoSelecionado.membros}" id="idMembros">
+                    <f:selectItems value="#{usuarioMB.listaUsuarios}" />
                 </h:selectManyListbox>
                 
                 <br/>

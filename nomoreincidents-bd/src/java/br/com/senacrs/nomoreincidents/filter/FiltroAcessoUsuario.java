@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Diego Kremer
  */
 
-@WebFilter(filterName = "FiltroAcessoUsuario", urlPatterns = {""})
+@WebFilter(filterName = "FiltroAcessoUsuario", urlPatterns = {"/faces/index_principal.xhtml"})
 public class FiltroAcessoUsuario implements Filter {
     
     @Inject 
@@ -48,6 +48,7 @@ public class FiltroAcessoUsuario implements Filter {
             //deixa acessar o recurso
             chain.doFilter(request, response);
         } else {
+            System.out.println(usuarioMB.toString());
             //redireciona para a página de login
             //getContextPath -> Caminho da aplicação
             resp.sendRedirect(req.getContextPath() + "/faces/login.xhtml");

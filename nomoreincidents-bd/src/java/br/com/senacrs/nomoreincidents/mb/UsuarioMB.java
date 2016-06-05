@@ -18,7 +18,7 @@ import javax.inject.Named;
 /**
  * @author Diego Kremer
  */
-@Named(value = "usuarioMB")
+@Named
 
 @ManagedBean
 @SessionScoped
