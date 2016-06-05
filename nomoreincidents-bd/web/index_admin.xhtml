@@ -7,6 +7,26 @@
     </h:head>
     <h:body>
         Hello from Facelets ADMIN
+
+        <h:form>
+<!--            <p:commandButton value="Incidentes" action="incidentes"/>-->
+            <h:button outcome="/incidente/incidentes" value="Incidentes"/>
+            <h:button outcome="/incidente/cadastrarIncidente" value="Cadastrar Incidente"/>
+            <br/>
+            <br/>
+<!--            <p:commandButton value="Atividades" action="atividades"/>-->
+            <h:button outcome="/atividade/atividades" value="Atividades"/>
+            <br/>
+            <br/>
+<!--            <p:commandButton value="Grupo Técnico" action="grupoTecnico"/>-->
+            <h:button outcome="/grupoTecnico/grupoTecnico" value="Grupo Técnico"/>
+            <h:button outcome="/grupoTecnico/cadastrarGrupoTecnico" value="Cadastrar Grupo Tecnico"/>
+            <br/>
+            <br/>
+<!--            <p:commandButton value="Usuários" action="usuarios"/>-->
+            <h:button outcome="/usuario/usuarios" value="Usuarios"/>
+            
+        </h:form>
     </h:body>
 </html>
 

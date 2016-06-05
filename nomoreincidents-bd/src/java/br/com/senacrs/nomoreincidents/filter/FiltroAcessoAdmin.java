@@ -22,7 +22,7 @@ import javax.servlet.annotation.WebFilter;
  *
  * @author Diego Kremer
  */
-@WebFilter(filterName = "FiltroAcessoAdmin", urlPatterns = {"/index_admin.xhtml"})
+@WebFilter(filterName = "FiltroAcessoAdmin", urlPatterns = {"/faces/index_admin.xhtml"})
 public class FiltroAcessoAdmin implements Filter {
     
     private static final boolean debug = true;
