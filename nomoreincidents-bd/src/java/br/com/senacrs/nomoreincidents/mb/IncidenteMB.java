@@ -29,7 +29,7 @@ public class IncidenteMB {
     public IncidenteMB() {
     }
 
-    public Incidente getGrupoSelecionado() {
+    public Incidente getIncidenteSelecionado() {
         return incidenteSelecionado;
     }
 
@@ -58,7 +58,7 @@ public class IncidenteMB {
         
     }
     
-    public String editarGrupoTecnico(Incidente in) {
+    public String editarIncidente(Incidente in) {
         incidenteSelecionado = in;
         return ("editarIncidente?faces-redirect=true");
     }
@@ -72,7 +72,7 @@ public class IncidenteMB {
         return ("editarIncidente?faces-redirect=true");
     }
     
-    public void removerGrupoTecnico(Incidente in) {
+    public void removerIncidente(Incidente in) {
         try {
             new IncidenteService().excluir(incidenteSelecionado);
         } catch (BusinessException ex) {

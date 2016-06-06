@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -26,9 +27,12 @@ public class Atividade implements Serializable {
     private Long id;
     
     private int numeroInterno;
-//    private ArrayList<Usuario> analista;//Adicionado ArrayList para funcionar em AtividadeService
-//    private ArrayList<Incidente> incidente;//Adicionado ArrayList para funcionar em AtividadeService
-//    private ArrayList<GrupoTecnico> grupoTecnico;//Adicionado ArrayList para funcionar em AtividadeService
+    @ManyToMany
+    private ArrayList<Usuario> analista;//Adicionado ArrayList para funcionar em AtividadeService
+    @ManyToMany
+    private ArrayList<Incidente> incidente;//Adicionado ArrayList para funcionar em AtividadeService
+    @ManyToMany
+    private ArrayList<GrupoTecnico> grupoTecnico;//Adicionado ArrayList para funcionar em AtividadeService
     private String descricao;
 
 
@@ -48,29 +52,29 @@ public class Atividade implements Serializable {
         this.numeroInterno = numeroInterno;
     }
 
-//    public ArrayList<Usuario> getAnalista() {
-//        return analista;
-//    }
-//
-//    public void setAnalista(ArrayList<Usuario> analista) {
-//        this.analista = analista;
-//    }
-//
-//    public ArrayList<Incidente> getIncidente() {
-//        return incidente;
-//    }
-//
-//    public void setIncidente(ArrayList<Incidente> incidente) {
-//        this.incidente = incidente;
-//    }
-//
-//    public ArrayList<GrupoTecnico> getGrupoTecnico() {
-//        return grupoTecnico;
-//    }
-//
-//    public void setGrupoTecnico(ArrayList<GrupoTecnico> grupoTecnico) {
-//        this.grupoTecnico = grupoTecnico;
-//    }
+    public ArrayList<Usuario> getAnalista() {
+        return analista;
+    }
+
+    public void setAnalista(ArrayList<Usuario> analista) {
+        this.analista = analista;
+    }
+
+    public ArrayList<Incidente> getIncidente() {
+        return incidente;
+    }
+
+    public void setIncidente(ArrayList<Incidente> incidente) {
+        this.incidente = incidente;
+    }
+
+    public ArrayList<GrupoTecnico> getGrupoTecnico() {
+        return grupoTecnico;
+    }
+
+    public void setGrupoTecnico(ArrayList<GrupoTecnico> grupoTecnico) {
+        this.grupoTecnico = grupoTecnico;
+    }
 
 
 

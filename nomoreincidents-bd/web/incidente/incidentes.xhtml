@@ -13,43 +13,43 @@
 
     <h:body>
         <h1>Incidentes</h1>
-        <p:dataTable var="novoIncidente" value="#{incidenteMB.incidenteDB}">
+        <p:dataTable var="incidente" value="#{incidenteMB.listaIncidentes}">
             <p:column headerText="Descrição">
-                <h:outputText value="#{novoIncidente.descricao}" />
+                <h:outputText value="#{incidente.descricao}" />
             </p:column>
 
             <p:column headerText="Localidade">
-                <h:outputText value="#{novoIncidente.localidade}" />
+                <h:outputText value="#{incidente.localidade}" />
             </p:column>
 
             <p:column headerText="Usuário">
-                <h:outputText value="#{novoIncidente.usuario}" />
+                <h:outputText value="#{incidente.usuario}" />
             </p:column>
 
             <p:column headerText="Data">
-                <h:outputText value="#{novoIncidente.data}" >
+                <h:outputText value="#{incidente.data}" >
 <!--                    <f:convertDateTime pattern ="dd/MM/yyyy" />-->
                 </h:outputText>
             </p:column>
             
             <p:column headerText="Numero de referência">
-                <h:outputText value="#{novoIncidente.numeroRef}" />
+                <h:outputText value="#{incidente.numeroRef}" />
             </p:column>
             <p:column >
                     <f:facet name="header">
                         <h:outputText value="Operação" />
                     </f:facet>
-                        <p:commandButton value="Editar " action="#{incidenteMB.editarIncidente(novoIncidente)}"/>
+                <p:commandButton value="Editar " action="#{incidenteMB.editarIncidente(incidente)}"/>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <p:commandButton value="Remover" action="#{incidenteMB.removerIncidente(novoIncidente)}"/>
+                        <p:commandButton value="Remover" action="#{incidenteMB.removerIncidente(incidente)}"/>
                         
             </p:column> 
             
         </p:dataTable>
         <br></br>
          <h:form>
-            <p:commandButton value="Menu" action="menu"/>
-            <h:commandButton value="Adicionar Incidente" action="cadastrarIncidente"/>
+            <p:commandButton value="Menu" action="/menu"/>
+            <h:commandButton value="Adicionar Incidente" action="/incidente/cadastrarIncidente"/>
         </h:form>
     </h:body>
 

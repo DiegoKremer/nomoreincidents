@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -20,6 +21,9 @@ import javax.persistence.Id;
  */
 @Entity
 public class Incidente implements Serializable {
+
+    @ManyToMany(mappedBy = "incidente")
+    private List<Atividade> atividades;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,7 +32,8 @@ public class Incidente implements Serializable {
     private int numero;
     private String numeroRef;
     private String localidade;
-//    private ArrayList<Usuario> usuario;//Adicionado ArrayList - verificar IncidenteService!!!
+    @ManyToMany
+    private ArrayList<Usuario> usuario;//Adicionado ArrayList - verificar IncidenteService!!!
     private String data;
     private String descricao;
 
@@ -64,13 +69,13 @@ public class Incidente implements Serializable {
         this.localidade = localidade;
     }
 
-//    public ArrayList<Usuario> getUsuario() {
-//        return usuario;
-//    }
-//
-//    public void setUsuario(ArrayList<Usuario> usuario) {
-//        this.usuario = usuario;
-//    }
+    public ArrayList<Usuario> getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(ArrayList<Usuario> usuario) {
+        this.usuario = usuario;
+    }
 
   
 

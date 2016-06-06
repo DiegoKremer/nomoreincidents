@@ -13,35 +13,35 @@
 
     <h:body>
         <h1>Atividades</h1>
-        <p:dataTable var="novaAtividade" value="#{atividadeMB.atividadeDB}">
+        <p:dataTable var="atividade" value="#{atividadeMB.listaAtividades}">
             <p:column headerText="Analista">
-                <h:outputText value="#{novaAtividade.analista}" />
+                <h:outputText value="#{atividade.analista}" />
             </p:column>
 
             <p:column headerText="Incidente">
-                <h:outputText value="#{novaAtividade.incidente}" />
+                <h:outputText value="#{atividade.incidente}" />
             </p:column>
 
             <p:column headerText="Equipe">
-                <h:outputText value="#{novaAtividade.grupoTecnico}" />
+                <h:outputText value="#{atividade.grupoTecnico}" />
             </p:column>
             
-            <p:column headerText="Data">
-                <h:outputText value="#{novaAtividade.data}" />
+<!--            <p:column headerText="Data">
+                <h:outputText value="#{atividade.data}" />
             </p:column>
             
             <p:column headerText="Hora">
-                <h:outputText value="#{novaAtividade.hora}" />
-            </p:column>
+                <h:outputText value="#{atividade.hora}" />
+            </p:column>-->
             
             <p:column headerText="Numero interno">
-                <h:outputText value="#{novaAtividade.numeroInterno}" />
+                <h:outputText value="#{atividade.numeroInterno}" />
             </p:column>
         </p:dataTable>
          <br></br>
          <h:form>
-         <p:commandButton value="Menu" action="menu"/>
-         <p:commandButton value="Adicionar atividade" action="cadastrarAtividade"/>
+         <p:commandButton value="Menu" action="/menu"/>
+         <p:commandButton value="Adicionar atividade" action="/atividade/cadastrarAtividade"/>
          </h:form>
     </h:body>
 

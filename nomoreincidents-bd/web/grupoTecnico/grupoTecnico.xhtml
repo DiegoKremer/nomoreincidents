@@ -13,7 +13,7 @@
 
     <h:body>
         <h1>Grupo técnico</h1>
-        <p:dataTable var="novoGrupo" value="#{grupotecnicoMB.grupoTecnicoDB}"  >
+        <p:dataTable var="grupo" value="#{grupotecnicoMB.listaGruposTecnicos}"  >
          
                 <h:outputText value="Tabela de Grupo Técnico" />
            
@@ -22,40 +22,40 @@
                
                  
                 
-                <h:outputText id="idNome" value="#{novoGrupo.nome}"  />
+                <h:outputText id="idNome" value="#{grupo.nome}"  />
             </p:column>
             <p:column headerText="Email">
                
                    
            
-                <h:outputText id="idEmail" value="#{novoGrupo.email}" />
+                <h:outputText id="idEmail" value="#{grupo.email}" />
             </p:column>
             <p:column headerText="Membros">
                 
                     
                 
-                <h:outputText id="idMembros" value="#{novoGrupo.membros}" />
+                <h:outputText id="idMembros" value="#{grupo.membros}" />
             </p:column>
             <p:column headerText="Telefone">
               
                   
               
-                <h:outputText  id="idTelefone" value="#{novoGrupo.telefone}"/>
+                <h:outputText  id="idTelefone" value="#{grupo.telefone}"/>
             </p:column>
             <p:column >
                     <f:facet name="header">
                         <h:outputText value="Operação" />
                     </f:facet>
-                        <p:commandButton value="Editar " action="#{grupotecnicoMB.editarGrupo(novoGrupo)}"/>
+                <p:commandButton value="Editar " action="#{grupotecnicoMB.editarGrupoTecnico(grupo)}"/>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <p:commandButton value="Remover" action="#{grupotecnicoMB.removerGrupo(novoGrupo)}"/>
+                        <p:commandButton value="Remover" action="#{grupotecnicoMB.removerGrupoTecnico(grupo)}"/>
                         
             </p:column> 
         </p:dataTable>
         <br></br>
         <h:form>
-            <p:commandButton value="Menu" action="menu"/>
-            <p:button value="Adicionar Grupo Técnico" outcome="cadastrarGrupoTecnico"/>
+            <p:commandButton value="Menu" action="/menu"/>
+            <p:button value="Adicionar Grupo Técnico" outcome="/grupoTecnico/cadastrarGrupoTecnico"/>
         </h:form>
     </h:body>
 

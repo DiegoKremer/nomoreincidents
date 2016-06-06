@@ -7,10 +7,12 @@
 package br.com.senacrs.nomoreincidents.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 
 /**
@@ -19,6 +21,15 @@ import javax.persistence.Id;
  */
 @Entity
 public class Usuario implements Serializable {
+
+    @ManyToMany(mappedBy = "membros")
+    private List<GrupoTecnico> grupoTecnicos;
+
+    @ManyToMany(mappedBy = "usuario")
+    private List<Incidente> incidentes;
+
+    @ManyToMany(mappedBy = "analista")
+    private List<Atividade> atividades;
 
 //    @ManyToMany(mappedBy = "membros")
 //    private List<GrupoTecnico> grupoTecnicos;

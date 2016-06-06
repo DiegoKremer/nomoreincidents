@@ -8,6 +8,7 @@ package br.com.senacrs.nomoreincidents.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,9 @@ import javax.persistence.ManyToMany;
  */
 @Entity
 public class GrupoTecnico implements Serializable {
+
+    @ManyToMany(mappedBy = "grupoTecnico")
+    private List<Atividade> atividades;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,7 +33,8 @@ public class GrupoTecnico implements Serializable {
     private String email;
     private String telefone;
     
-//    private ArrayList<Usuario> membros;
+    @ManyToMany
+    private ArrayList<Usuario> membros;
 
     public Long getId() {
         return id;
@@ -63,13 +68,13 @@ public class GrupoTecnico implements Serializable {
         this.telefone = telefone;
     }
 
-//    public ArrayList<Usuario> getMembros() {
-//        return membros;
-//    }
-//
-//    public void setMembros(ArrayList<Usuario> membros) {
-//        this.membros = membros;
-//    }
+    public ArrayList<Usuario> getMembros() {
+        return membros;
+    }
+
+    public void setMembros(ArrayList<Usuario> membros) {
+        this.membros = membros;
+    }
     
     
 

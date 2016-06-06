@@ -12,25 +12,25 @@
         <h:form>
             <h:panelGrid columns="3">
                 <h:outputLabel value="Número " for="idNumero" />
-                <h:outputText value="#{incidenteMB.geraNumeroIncidente()}" id="idNumero"/>
+                <h:outputText value="#{incidenteMB.incidenteSelecionado.numero}" id="idNumero"/>
                 <br/>
                 <h:outputLabel value="Número Ref.: " for="idNumeroRef" />
-                <h:inputText value="#{incidenteMB.novoIncidente.numeroRef}" id="idNumeroRef"/>
+                <h:inputText value="#{incidenteMB.incidenteSelecionado.numeroRef}" id="idNumeroRef"/>
                 <br/>
                 <h:outputLabel value="Localidade: " for="idLocalidade" />
-                <h:inputText value="#{incidenteMB.novoIncidente.localidade}" id="idLocalidade"/>
+                <h:inputText value="#{incidenteMB.incidenteSelecionado.localidade}" id="idLocalidade"/>
                 <br/>
                 <h:outputLabel value="Usuario: " for="idUsuario" />
-                <h:selectOneMenu value="#{incidenteMB.usuarioSelecionado}" id="idUsuario" 
+                <h:selectOneMenu value="#{incidenteMB.incidenteSelecionado.usuario}" id="idUsuario" 
                                  converter="usuarioConverter" required="true">
-                    <f:selectItems value="#{usuarioMB.usuariosDB}" />
+                    <f:selectItems value="#{usuarioMB.listaUsuarios}" />
                 </h:selectOneMenu>
                 <br/>
                 <h:outputLabel value="Data: " for="idData" />
-                <h:inputText value="#{incidenteMB.dataAtual()}" id="idData"/>
+                <h:inputText value="#{incidenteMB.incidenteSelecionado.data}" id="idData"/>
                 <br/>
                 <h:outputLabel value="Descrição: " for="idDescricao" />
-                <h:inputTextarea value="#{incidenteMB.novoIncidente.descricao}" id="idDescricao"/>
+                <h:inputTextarea value="#{incidenteMB.incidenteSelecionado.descricao}" id="idDescricao"/>
             </h:panelGrid>
             <br/>
             <br/>
