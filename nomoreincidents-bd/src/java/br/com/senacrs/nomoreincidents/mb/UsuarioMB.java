@@ -135,7 +135,7 @@ public class UsuarioMB {
         return ("cadastrarUsuario?faces-redirect=true");
     }
     
-    public String adicionarUsuario() {
+    public String adicionarUsuario(Usuario usuario) {
         try {
             new UsuarioService().salvar(usuarioSelecionado);
             System.out.println(usuarioSelecionado.getNome());
